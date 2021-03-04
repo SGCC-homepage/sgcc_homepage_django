@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <div style="height: 80vh;">
-    동아리 설명좀
+    <div class="row" style="height: 85vh;">
+    <div class="col-md-6">
+        <img src="{% static 'image/header_logo.png' %}" style="width: 85vh;">
+    </div>
+    <div class="col-md-6 position-relative">
+        <div class="position-absolute bottom-0 end-0">
+            <a href="http://pf.kakao.com/_xdHUxjK" class="btn btn-info">플러스 친구로 문의하기</a>
+            <a href="https://forms.gle/xhq9UWkBG8kmUaGS7" class="btn btn-link">가입신청 구글 폼</a>
+        </div>
+
+    </div>
     </div>
 {% endblock %}
