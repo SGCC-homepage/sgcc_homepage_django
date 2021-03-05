@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
+# AbstractUser의 username이 학번
 class User(AbstractUser):
     MAJOR_CHOICE = [(0, '국어국문학'), (1, '사학'), (2, '철학'), (3, '종교학'),
                     (4, '영미어문'), (5, '미국문화'), (6, '유럽문화'), (7, '중국문화'),
@@ -14,7 +14,6 @@ class User(AbstractUser):
     GRADE_CHOICE = [(0, '신입'), (1, '일반'), (2, '운영진'), (3, '비활'), (4, '탈퇴')]
 
     name = models.CharField(max_length=20, default='name')
-    student_id = models.CharField(max_length=20, default='0')
     major = models.IntegerField(choices=MAJOR_CHOICE, default=0)
     phone = models.CharField(max_length=20, default='0')
     state = models.IntegerField(choices=STATE_CHOICE, default=0)
@@ -22,4 +21,4 @@ class User(AbstractUser):
     dues_payment = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name + '('+self.student_id+')'
+        return self.name + '('+self.username+')'

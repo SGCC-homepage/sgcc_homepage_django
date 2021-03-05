@@ -33,3 +33,6 @@ def create_user(request):
 
     return render(request, 'sign_up.html', {'form': form})
 
+
+def my_page(request):
+    return render(request, 'my_page.html')
