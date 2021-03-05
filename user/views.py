@@ -1,21 +1,35 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate
+from django.shortcuts import render, redirect
+from django.contrib import auth
 
 from .forms import *
 from .models import *
 
 
 def main(request):
-    REST_API_KEY = 'd993887a2f7194c865cec5fbff6727b1'
-    REDIRECT_URI = "http://127.0.0.1:8000/account/login/kakao/redirect"
-    kakao_login_url = f"https://kauth.kakao.com/oauth/authorize?client_id={REST_API_KEY}&redirect_uri={REDIRECT_URI}&response_type=code"
-    return render(request, 'main.html', {'kakao_login': kakao_login_url})
-
-
-def sign_in(request):
-    form = LogIn()
-    return render(request, 'sign_in.html', {'form': form})
+    return render(request, 'main.html')
 
 
 def sign_up(request):
     form = CreateAccount()
     return render(request, 'sign_up.html', {'form': form})
+
+
+def create_user(request):
+    if request.method == "POST":
+        print('회원가입')
+        form = CreateAccount(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            print('유효')
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])
+            if user.check_password(form.cleaned_data['password2']):
+                user.save()
+                auth.login(request, user)
+                return redirect('main')
+    else:
+        form = CreateAccount()
+
+    return render(request, 'sign_up.html', {'form': form})
+

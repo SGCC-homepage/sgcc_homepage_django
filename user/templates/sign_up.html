@@ -6,8 +6,9 @@
 {% block content %}
     <h2 class="h2 mb-4 pt-4">회원가입</h2>
     <div class="join-box mx-auto px-3">
-        <form method="post">
+        <form method="post" action="{% url 'create_user' %}" enctype="multipart/form-data">
             {% csrf_token %}
+            {% include "form_errors.html" %}
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">이름</label>
                 {{ form.name }}
@@ -22,7 +23,7 @@
             </div>
             <div class="mb-3">
                  <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">이메일</label>
-                {{ form.email }}
+                {{ form.username }}
             </div>
            <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">전화번호</label>
@@ -34,7 +35,11 @@
            </div>
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호</label>
-                {{ form.password }}
+                {{ form.password1 }}
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호 확인</label>
+                {{ form.password2 }}
             </div>
             <input type="submit" name="submit" value="회원가입" class="btn w-100 btn-success mt-3"/>
         </form>

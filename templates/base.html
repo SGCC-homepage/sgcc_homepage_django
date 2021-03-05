@@ -47,10 +47,14 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <a href="{% url 'sign_in' %}" class="btn btn-sm btn-outline-success me-2" type="submit">로그인</a>
-                    <a href="{% url 'sign_up' %}" class="btn btn-sm btn-outline-success" type="submit">회원가입</a>
-                </form>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-success">로그아웃</a>
+                {% else %}
+                    <div class="d-flex">
+                        <a href="{% url 'sign_in' %}" class="btn btn-sm btn-outline-success me-2">로그인</a>
+                        <a href="{% url 'sign_up' %}" class="btn btn-sm btn-outline-success">회원가입</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </nav>
