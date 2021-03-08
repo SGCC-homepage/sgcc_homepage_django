@@ -1,5 +1,209 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block css %}
+    <style>
+            @import url(https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap);
+        </style>
+        <style>
+            @import url(https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap);
+        </style>
+        <style>
+            @import url(https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap);
+        </style>
+        <style>
+            body {
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            code {
+                font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+            }
+        </style>
+        <script charset="utf-8" src="/main.94d665ff31e7b26bb15f.hot-update.js"></script>
+        <style data-styled="active" data-styled-version="5.2.1">
+            .dcogAi{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;height:60px;width:100%;top:0px;z-index:5;background:white;color:white;border-bottom:1px solid #dee2e6;box-shadow:0 3px 6px rgba(0,0,0,0.10),0 3px 6px rgba(0,0,0,0.20);font-size:2.5rem;}
+            @media (width:768px) and (height:1024px){.dcogAi{width:768px;}}
+            @media (width:1024px) and (height:768px){.dcogAi{width:1024px;}}
+            @media (width:360px) and (height:640px){.dcogAi{width:360px;}}
+            @media (width:375px) and (height:664px){}
+            .kKCPXM{padding-top:60px;}
+            .jqRmsS{margin:0 auto;margin-top:50px;margin-left:115px;width:1024px;height:420px;position:relative;background:transparent;box-shadow:0px 0px 20px 2px #495057;}
+            @media (width:1366px) and (height:786px){.jqRmsS{margin-top:80px;margin-left:80px;width:1200px;height:550px;}}
+            @media (width:768px) and (height:1024px){.jqRmsS{margin-left:10vw;margin-right:10vw;width:80vw;height:86vh;background:white;box-shadow:0px 0px 10px 1px #495057;}}
+            @media (width:1024px) and (height:768px){.jqRmsS{margin-left:70px;width:876px;box-shadow:0px 0px 10px 1px #495057;}}
+            @media (width:360px) and (height:640px){.jqRmsS{margin-top:15px;margin-left:20px;width:320px;height:550px;background:white;box-shadow:0px 0px 10px 1px #495057;}}
+            @media (width:375px) and (height:664px){.jqRmsS{margin-top:15px;margin-left:20px;width:335px;height:570px;background:white;box-shadow:0px 0px 10px 1px #495057;}}.bgcVTv{position:absolute;left:0;top:60px;width:480px;height:525px;background:#8EB6BF;}
+            @media (width:1366px) and (height:786px){.bgcVTv{height:726px;}}
+            @media (width:768px) and (height:1024px){.bgcVTv{width:768px;height:990px;}}
+            @media (width:1024px) and (height:768px){.bgcVTv{width:420px;height:530px;}}
+            @media (width:360px) and (height:640px){.bgcVTv{width:360px;height:580px;}}
+            @media (width:375px) and (height:664px){.bgcVTv{width:375px;height:604px;}}.dZWlIT{position:absolute;top:128px;left:140px;width:6px;height:90px;background:#F2DA5E;}
+            @media (width:1366px) and (height:786px){.dZWlIT{top:170px;left:120px;}}
+            @media (width:768px) and (height:1024px){.dZWlIT{top:150px;left:120px;}}
+            @media (width:1024px) and (height:768px){.dZWlIT{left:100px;}}
+            @media (width:360px) and (height:640px){.dZWlIT{top:90px;left:40px;width:4px;height:60px;}}
+            @media (width:375px) and (height:664px){.dZWlIT{top:90px;left:40px;width:4px;height:60px;}}.eyYVkJ{position:absolute;top:118px;left:160px;width:300px;height:90px;background:transparent;font-size:4.5rem;font-family:'Playfair Display',serif;}
+            @media (width:1366px) and (height:786px){.eyYVkJ{top:160px;left:140px;}}
+            @media (width:768px) and (height:1024px){.eyYVkJ{top:140px;left:145px;}}
+            @media (width:1024px) and (height:768px){.eyYVkJ{left:120px;}}
+            @media (width:360px) and (height:640px){.eyYVkJ{top:84px;left:60px;font-size:3rem;}}
+            @media (width:375px) and (height:664px){.eyYVkJ{top:84px;left:60px;font-size:3rem;}}.ojGWe{position:absolute;top:480px;left:1035px;width:65px;height:20px;border:none;border-radius:4px;padding:0.25rem 0.5rem;background:transparent;cursor:pointer;font-family:'Nanum Gothic',sans-serif;font-size:1rem;text-align:center;color:#403A30;}.ojGWe:hover{font-weight:bold;color:#C00000;}
+            @media (width:1366px) and (height:786px){.ojGWe{top:630px;left:1150px;width:80px;font-size:1.2rem;}}
+            @media (width:768px) and (height:1024px){.ojGWe{top:940px;left:590px;}}
+            @media (width:1024px) and (height:768px){.ojGWe{top:485px;left:850px;}}
+            @media (width:360px) and (height:640px){.ojGWe{top:580px;left:250px;}}
+            @media (width:375px) and (height:664px){.ojGWe{top:600px;left:265px;}}.kdCWln{-ms-transform:rotate(270deg);-webkit-transform:rotate(270deg);-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg);position:absolute;top:350px;left:16px;width:300px;height:60px;background:transparent;font-size:10px;font-family:'Merriweather',serif;text-align:right;}
+            @media (width:1366px) and (height:786px){.kdCWln{top:430px;left:-28px;width:350px;}}
+            @media (width:768px) and (height:1024px){.kdCWln{font-color:gray;-ms-transform:rotate(0deg);-webkit-transform:rotate(0deg);-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);width:560px;top:250px;left:120px;text-align:left;}}
+            @media (width:1024px) and (height:768px){.kdCWln{left:-24px;}}
+            @media (width:360px) and (height:640px){.kdCWln{display:none;}}
+            @media (width:375px) and (height:664px){.kdCWln{display:none;}}.fNcMZj{padding-top:60px;}.jGifQG{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:9.2rem;left:520px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.jGifQG{top:190px;left:530px;}}
+            @media (width:768px) and (height:1024px){.jGifQG{top:330px;left:114px;}}
+            @media (width:1024px) and (height:768px){.jGifQG{left:450px;}}
+            @media (width:360px) and (height:640px){.jGifQG{top:175px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.jGifQG{top:175px;left:32px;font-size:0.9rem;}}.iwsbGM{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:9.2rem;left:650px;}
+            @media (width:1366px) and (height:786px){.iwsbGM{top:190px;left:660px;}}
+            @media (width:768px) and (height:1024px){.iwsbGM{top:330px;left:244px;}}
+            @media (width:1024px) and (height:768px){.iwsbGM{left:560px;}}
+            @media (width:360px) and (height:640px){.iwsbGM{top:175px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.iwsbGM{top:175px;left:120px;font-size:0.9rem;}}.cVPeVZ{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:9.2rem;left:850px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.cVPeVZ{top:190px;left:900px;}}
+            @media (width:768px) and (height:1024px){.cVPeVZ{top:380px;left:114px;}}
+            @media (width:1024px) and (height:768px){.cVPeVZ{left:700px;}}
+            @media (width:360px) and (height:640px){.cVPeVZ{top:215px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.cVPeVZ{top:215px;left:32px;font-size:0.9rem;}}.hRFTbz{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:9.2rem;left:980px;}@media (width:1366px) and (height:786px){.hRFTbz{top:190px;left:1030px;}}
+            @media (width:768px) and (height:1024px){.hRFTbz{top:380px;left:244px;}}
+            @media (width:1024px) and (height:768px){.hRFTbz{left:810px;}}
+            @media (width:360px) and (height:640px){.hRFTbz{top:215px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.hRFTbz{top:215px;left:120px;font-size:0.9rem;}}.gsVkZp{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:12.8rem;left:520px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.gsVkZp{top:250px;left:530px;}}
+            @media (width:768px) and (height:1024px){.gsVkZp{top:430px;left:114px;}}
+            @media (width:1024px) and (height:768px){.gsVkZp{left:450px;}}
+            @media (width:360px) and (height:640px){.gsVkZp{top:255px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.gsVkZp{top:255px;left:32px;font-size:0.9rem;}}.jSnXtF{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:12.8rem;left:650px;}
+            @media (width:1366px) and (height:786px){.jSnXtF{top:250px;left:660px;}}
+            @media (width:768px) and (height:1024px){.jSnXtF{top:430px;left:244px;}}
+            @media (width:1024px) and (height:768px){.jSnXtF{left:560px;}}
+            @media (width:360px) and (height:640px){.jSnXtF{top:255px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.jSnXtF{top:255px;left:120px;font-size:0.9rem;}}.iloVIY{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:12.8rem;left:850px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.iloVIY{top:250px;left:900px;}}
+            @media (width:768px) and (height:1024px){.iloVIY{top:480px;left:114px;}}
+            @media (width:1024px) and (height:768px){.iloVIY{left:700px;}}
+            @media (width:360px) and (height:640px){.iloVIY{top:295px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.iloVIY{top:295px;left:32px;font-size:0.9rem;}}.hLVXiZ{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:12.8rem;left:980px;}@media (width:1366px) and (height:786px){.hLVXiZ{top:250px;left:1030px;}}
+            @media (width:768px) and (height:1024px){.hLVXiZ{top:480px;left:244px;}}
+            @media (width:1024px) and (height:768px){.hLVXiZ{left:810px;}}
+            @media (width:360px) and (height:640px){.hLVXiZ{top:295px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.hLVXiZ{top:295px;left:120px;font-size:0.9rem;}}.fjMEsk{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:16.4rem;left:520px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.fjMEsk{top:310px;left:530px;}}
+            @media (width:768px) and (height:1024px){.fjMEsk{top:530px;left:114px;}}
+            @media (width:1024px) and (height:768px){.fjMEsk{left:450px;}}
+            @media (width:360px) and (height:640px){.fjMEsk{top:335px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.fjMEsk{top:335px;left:32px;font-size:0.9rem;}}.dSmbcZ{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:16.4rem;left:650px;}
+            @media (width:1366px) and (height:786px){.dSmbcZ{top:310px;left:660px;}}
+            @media (width:768px) and (height:1024px){.dSmbcZ{top:530px;left:244px;}}
+            @media (width:1024px) and (height:768px){.dSmbcZ{left:560px;}}
+            @media (width:360px) and (height:640px){.dSmbcZ{top:335px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.dSmbcZ{top:335px;left:120px;font-size:0.9rem;}}.djMgzM{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:16.4rem;left:850px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.djMgzM{top:310px;left:900px;}}
+            @media (width:768px) and (height:1024px){.djMgzM{top:580px;left:114px;}}
+            @media (width:1024px) and (height:768px){.djMgzM{left:700px;}}
+            @media (width:360px) and (height:640px){.djMgzM{top:375px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.djMgzM{top:375px;left:32px;font-size:0.9rem;}}.dafKNp{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:16.4rem;left:980px;}
+            @media (width:1366px) and (height:786px){.dafKNp{top:310px;left:1030px;}}
+            @media (width:768px) and (height:1024px){.dafKNp{top:580px;left:244px;}}
+            @media (width:1024px) and (height:768px){.dafKNp{left:810px;}}
+            @media (width:360px) and (height:640px){.dafKNp{top:375px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.dafKNp{top:375px;left:120px;font-size:0.9rem;}}.eOtNlY{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:20rem;left:520px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.eOtNlY{top:370px;left:530px;}}
+            @media (width:768px) and (height:1024px){.eOtNlY{top:630px;left:114px;}}
+            @media (width:1024px) and (height:768px){.eOtNlY{left:450px;}}
+            @media (width:360px) and (height:640px){.eOtNlY{top:415px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.eOtNlY{top:415px;left:32px;font-size:0.9rem;}}.cBSNbt{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:20rem;left:650px;}
+            @media (width:1366px) and (height:786px){.cBSNbt{top:370px;left:660px;}}
+            @media (width:768px) and (height:1024px){.cBSNbt{top:630px;left:244px;}}
+            @media (width:1024px) and (height:768px){.cBSNbt{left:560px;}}
+            @media (width:360px) and (height:640px){.cBSNbt{top:415px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.cBSNbt{top:415px;left:120px;font-size:0.9rem;}}.ljQQRs{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:20rem;left:850px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.ljQQRs{top:370px;left:900px;}}
+            @media (width:768px) and (height:1024px){.ljQQRs{top:680px;left:114px;}}
+            @media (width:1024px) and (height:768px){.ljQQRs{left:700px;}}
+            @media (width:360px) and (height:640px){.ljQQRs{top:455px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.ljQQRs{top:455px;left:32px;font-size:0.9rem;}}.lmGDCH{position:absolute;width:120px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:20rem;left:980px;}
+            @media (width:1366px) and (height:786px){.lmGDCH{top:370px;left:1030px;}}
+            @media (width:768px) and (height:1024px){.lmGDCH{top:680px;left:244px;}}
+            @media (width:1024px) and (height:768px){.lmGDCH{left:810px;}}
+            @media (width:360px) and (height:640px){.lmGDCH{top:455px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.lmGDCH{top:455px;left:120px;font-size:0.9rem;}}.eLIYCO{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:23.6rem;left:520px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.eLIYCO{top:430px;left:530px;}}
+            @media (width:768px) and (height:1024px){.eLIYCO{top:730px;left:114px;}}
+            @media (width:1024px) and (height:768px){.eLIYCO{left:450px;}}
+            @media (width:360px) and (height:640px){.eLIYCO{top:495px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.eLIYCO{top:495px;left:32px;font-size:0.9rem;}}.dYSuUX{position:absolute;width:200px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:23.6rem;left:650px;}
+            @media (width:1366px) and (height:786px){.dYSuUX{top:430px;left:660px;}}
+            @media (width:768px) and (height:1024px){.dYSuUX{top:730px;left:244px;}}
+            @media (width:1024px) and (height:768px){.dYSuUX{left:560px;}}
+            @media (width:360px) and (height:640px){.dYSuUX{top:495px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.dYSuUX{top:495px;left:120px;font-size:0.9rem;}}.ilfwml{position:absolute;width:65px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:27.2rem;left:520px;font-weight:bold;}
+            @media (width:1366px) and (height:786px){.ilfwml{top:490px;left:530px;}}
+            @media (width:768px) and (height:1024px){.ilfwml{top:780px;left:114px;}}
+            @media (width:1024px) and (height:768px){.ilfwml{left:450px;}}
+            @media (width:360px) and (height:640px){.ilfwml{top:535px;left:32px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.ilfwml{top:535px;left:32px;font-size:0.9rem;}}.hblqrZ{position:absolute;width:200px;height:18px;padding:0.25rem 0.5rem;background:transparent;font-size:1rem;font-family:'Nanum Gothic',sans-serif;text-align:left;top:27.2rem;left:650px;}
+            @media (width:1366px) and (height:786px){.hblqrZ{top:490px;left:660px;}}
+            @media (width:768px) and (height:1024px){.hblqrZ{top:780px;left:244px;}}
+            @media (width:1024px) and (height:768px){.hblqrZ{left:560px;}}
+            @media (width:360px) and (height:640px){.hblqrZ{top:535px;left:120px;font-size:0.9rem;}}
+            @media (width:375px) and (height:664px){.hblqrZ{top:535px;left:120px;font-size:0.9rem;}}
+        </style>
+{% endblock %}
 {% block content %}
-my page
+        <div id="root">
+            <div class="sc-gsTCUz kKCPXM">
+                <div class="sc-bdfBwQ dcogAi"></div>
+                <div class="sc-hKgILt bgcVTv"></div>
+                <div class="sc-dlfnbm jqRmsS"></div>
+                <div class="sc-eCssSg dZWlIT"></div>
+                <div class="sc-jSgupP eyYVkJ">My Page</div>
+                <div class="sc-gKsewC ojGWe">수정하기</div>
+                <div class="sc-iBPRYJ kdCWln">margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;</div>
+            </div>
+            <div class="sc-fubCfw fNcMZj">
+                <div class="sc-pFZIQ jGifQG">아이디</div>
+                <div class="sc-jrAGrp iwsbGM">ID</div>
+                <div class="sc-kEjbxe cVPeVZ">비밀번호</div>
+                <div class="sc-iqHYGH hRFTbz">PW</div>
+                <div class="sc-crrsfI gsVkZp">이름</div>
+                <div class="sc-dQppl jSnXtF">Name</div>
+                <div class="sc-bqyKva iloVIY">학번</div>
+                <div class="sc-kstrdz hLVXiZ">StudentNum</div>
+                <div class="sc-hBEYos fjMEsk">학과</div>
+                <div class="sc-fodVxV dSmbcZ">Major</div>
+                <div class="sc-fFubgz djMgzM">상태</div>
+                <div class="sc-bkzZxe dafKNp">Status</div>
+                <div class="sc-idOhPF eOtNlY">등급</div>
+                <div class="sc-dIUggk cBSNbt">Rank</div>
+                <div class="sc-hHftDr ljQQRs">회비</div>
+                <div class="sc-dmlrTW lmGDCH">Fee</div>
+                <div class="sc-kfzAmx eLIYCO">전화번호</div>
+                <div class="sc-fKFyDc dYSuUX">Phone</div>
+                <div class="sc-bBXqnf ilfwml">이메일</div>
+                <div class="sc-iwyYcG hblqrZ">Email</div>
+            </div>
+        </div>
+        <!--
+            This HTML file is a template.
+            If you open it directly in the browser, you will see an empty page.
+            You can add webfonts, meta tags, or analytics to this file.
+            The build step will place the bundled scripts into the <body> tag.
+            To begin the development, run `npm start` or `yarn start`.
+            To create a production bundle, use `npm run build` or `yarn build`.
+        -->
+        <script src="/static/js/bundle.js"></script>
+        <script src="/static/js/vendors~main.chunk.js"></script>
+        <script src="/static/js/main.chunk.js"></script>
 {% endblock %}

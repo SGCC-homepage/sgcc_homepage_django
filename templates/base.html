@@ -35,13 +35,13 @@
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a href="{% url 'my_page' %}"
-                                            class="btn-sm btn-success me-2 js-scroll-trigger">마이페이지</a></li>
-                    <li class="nav-item"><a href="{% url 'logout' %}" class="btn-sm btn-success js-scroll-trigger">로그아웃</a>
+                                            class="btn-sm btn-primary me-2 js-scroll-trigger">마이페이지</a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="btn-sm btn-primary js-scroll-trigger">로그아웃</a>
                     </li>
                 {% else %}
                     <li class="nav-item"><a href="{% url 'sign_in' %}"
-                                            class="btn-sm btn-success me-2 js-scroll-trigger">로그인</a></li>
-                    <li class="nav-item"><a href="{% url 'sign_up' %}" class="btn-sm btn-success js-scroll-trigger">회원가입</a>
+                                            class="btn-sm btn-primary me-2 js-scroll-trigger">로그인</a></li>
+                    <li class="nav-item"><a href="{% url 'sign_up' %}" class="btn-sm btn-primary js-scroll-trigger">회원가입</a>
                     </li>
                 {% endif %}
             </ul>
@@ -51,7 +51,7 @@
 {% block content %}
 {% endblock %}
 {% block footer %}
-    <section class="contact-section bg-black">
+    <section class="contact-section" style="background-color: #FA8072">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3 mb-md-0">
@@ -128,7 +128,7 @@
             </div>
         </div>
     </section>
-    <footer class="footer bg-black small text-center text-white-50">
+    <footer class="footer small text-center text-black-50" style="background-color: #FA8072">
         <div class="container">© 2021 SGCC, Inc.</div>
     </footer>
 {% endblock %}
