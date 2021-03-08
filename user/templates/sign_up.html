@@ -4,44 +4,48 @@
     <link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
 {% endblock %}
 {% block content %}
-    <h2 class="h2 mb-4 pt-4">회원가입</h2>
-    <div class="join-box mx-auto px-3">
-        <form method="post" action="{% url 'create_user' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% include "form_errors.html" %}
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">이름</label>
-                {{ form.name }}
-            </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">학번</label>
-                {{ form.username }}
-            </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">전공(제 1전공)</label>
-                {{ form.major }}
-            </div>
-            <div class="mb-3">
-                 <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">이메일</label>
-                {{ form.email }}
-            </div>
-           <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">전화번호</label>
-                {{ form.phone }}
-           </div>
-           <div class="mb-3">
-               <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">상태</label>
-                {{ form.state }}
-           </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호</label>
-                {{ form.password1 }}
-            </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호 확인</label>
-                {{ form.password2 }}
-            </div>
-            <input type="submit" name="submit" value="회원가입" class="btn w-100 btn-success mt-3"/>
-        </form>
+    <div class="container text-center py-5" style="min-height: 93vh;">
+        <h2 class="h2 mb-4 pt-4">회원가입</h2>
+        <div class="join-box mx-auto px-3">
+            <form method="post" action="{% url 'create_user' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% include "form_errors.html" %}
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">이름</label>
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">학번</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">전공(제
+                        1전공)</label>
+                    {{ form.major }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">이메일</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">전화번호</label>
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">상태</label>
+                    {{ form.state }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호
+                        확인</label>
+                    {{ form.password2 }}
+                </div>
+                <input type="submit" name="submit" value="회원가입" class="btn w-100 btn-success mt-3"/>
+            </form>
+        </div>
     </div>
 {% endblock %}

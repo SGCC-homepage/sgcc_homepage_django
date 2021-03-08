@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="row" style="height: 85vh;">
-    <div class="col-md-6">
-        <img src="{% static 'image/header_logo.png' %}" style="width: 85vh;">
-    </div>
-    <div class="col-md-6 position-relative">
-        <div class="position-absolute bottom-0 end-0">
-            <a href="http://pf.kakao.com/_xdHUxjK" class="btn btn-info">플러스 친구로 문의하기</a>
+    <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0">SOGANG<br>ComputerClub</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">서강대학교 유일 컴퓨터 중앙 동아리 SGCC</h2>
+                <a class="btn btn-primary js-scroll-trigger" href="#about">플러스 친구 문의하기</a>
+            </div>
         </div>
-    </div>
-    </div>
+    </header>
 {% endblock %}
