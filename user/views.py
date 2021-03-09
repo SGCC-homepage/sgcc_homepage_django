@@ -34,5 +34,16 @@ def create_user(request):
     return render(request, 'sign_up.html', {'form': form})
 
 
-def my_page(request):
-    return render(request, 'my_page.html')
+def my_page(request, pk):
+    user = User.objects.get(pk=pk)
+    user_info = {
+        'name': user.name,
+        'major': user.get_major_display(),
+        'phone': user.phone,
+        'email': user.email,
+        'student_id': user.username,
+        'state': user.get_state_display(),
+        'grade': user.get_grade_display(),
+        'dues_payment': '납' if user.dues_payment else '미납',
+    }
+    return render(request, 'my_page.html', {'user': user_info})

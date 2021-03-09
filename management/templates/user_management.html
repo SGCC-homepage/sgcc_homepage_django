@@ -1,70 +1,72 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="mt-4">
-        <h4 class="h4 mb-4" style="text-align: left;">관리자페이지 > 회원 관리</h4>
-        <div id="input-form" class="d-flex flex-row-reverse mb-3">
-            <input type="text" id="keyword"/><span class="mx-3">학번 : </span>
-        </div>
-        <table class="table table-hover" id="user-table">
-            <thead>
-            <tr>
-                <th colspan="2">이름</th>
-                <th colspan="2">학번</th>
-                <th colspan="2">제 1전공</th>
-                <th colspan="2">전화번호</th>
-                <th colspan="2">이메일</th>
-                <th colspan="2">상태</th>
-                <th colspan="2">등급</th>
-                <th colspan="2">회비 납부 여부</th>
-                <th colspan="2">수정하기</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td colspan="2">김혜린</td>
-                <td colspan="2">20190258</td>
-                <td colspan="2">유럽문화학과</td>
-                <td colspan="2">01071828192</td>
-                <td colspan="2">mye785c83@gmail.com</td>
-                <td colspan="2">재학</td>
-                <td colspan="2">운영진</td>
-                <td colspan="2">납</td>
-                <td colspan="2">
-                    <button class="btn btn-sm btn-outline-danger">수정</button>
-                </td>
-            </tr>
-            {% for user in users %}
+    <div class="container text-center">
+        <div class="mt-4">
+            <h4 class="h4 mb-4" style="text-align: left;">관리자페이지 > 회원 관리</h4>
+            <div id="input-form" class="d-flex flex-row-reverse mb-3">
+                <input type="text" id="keyword"/><span class="mx-3">학번 : </span>
+            </div>
+            <table class="table table-hover" id="user-table">
+                <thead>
                 <tr>
-                    <td colspan="2">{{ user.name }}</td>
-                    <td colspan="2">{{ user.student_id }}</td>
-                    <td colspan="2">{{ user.major }}</td>
-                    <td colspan="2">{{ user.phone }}</td>
-                    <td colspan="2">{{ user.email }}</td>
-                    <td colspan="2">{{ user.state }}</td>
-                    <td colspan="2">{{ user.grade }}</td>
-                    <td colspan="2">{{ user.dues_payment }}</td>
+                    <th colspan="2">이름</th>
+                    <th colspan="2">학번</th>
+                    <th colspan="2">제 1전공</th>
+                    <th colspan="2">전화번호</th>
+                    <th colspan="2">이메일</th>
+                    <th colspan="2">상태</th>
+                    <th colspan="2">등급</th>
+                    <th colspan="2">회비 납부 여부</th>
+                    <th colspan="2">수정하기</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="2">김혜린</td>
+                    <td colspan="2">20190258</td>
+                    <td colspan="2">유럽문화학과</td>
+                    <td colspan="2">01071828192</td>
+                    <td colspan="2">mye785c83@gmail.com</td>
+                    <td colspan="2">재학</td>
+                    <td colspan="2">운영진</td>
+                    <td colspan="2">납</td>
                     <td colspan="2">
-                        <button class="btn btn-sm btn-outline-danger">수정</button>
+                        <button class="btn-sm btn-outline-danger">수정</button>
                     </td>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <script type="text/javascript">
-        // table 검색
-        $("#keyword").keyup(function () {
-            var k = $(this).val();
-            $("#user-table > tbody > tr").hide();
-            var temp = $("#user-table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+                {% for user in users %}
+                    <tr>
+                        <td colspan="2">{{ user.name }}</td>
+                        <td colspan="2">{{ user.student_id }}</td>
+                        <td colspan="2">{{ user.major }}</td>
+                        <td colspan="2">{{ user.phone }}</td>
+                        <td colspan="2">{{ user.email }}</td>
+                        <td colspan="2">{{ user.state }}</td>
+                        <td colspan="2">{{ user.grade }}</td>
+                        <td colspan="2">{{ user.dues_payment }}</td>
+                        <td colspan="2">
+                            <button class="btn-sm btn-outline-danger">수정</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            // table 검색
+            $("#keyword").keyup(function () {
+                var k = $(this).val();
+                $("#user-table > tbody > tr").hide();
+                var temp = $("#user-table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
 
-            $(temp).parent().show();
-        })
-    </script>
+                $(temp).parent().show();
+            })
+        </script>
+    </div>
 {% endblock %}
 {% block footer %}
-    <div class="d-flex flex-row-reverse mb-3 fixed-bottom">
-            <a href="{% url 'delete_user' %}" class="btn btn-outline-primary me-5">탈퇴 회원 삭제</a>
+    <div class="d-flex flex-row-reverse mb-3">
+        <a href="{% url 'delete_user' %}" class="btn-sm btn-info me-5">탈퇴 회원 삭제</a>
     </div>
 {% endblock %}

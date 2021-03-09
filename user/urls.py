@@ -9,5 +9,5 @@ urlpatterns = [
     path('join/', views.sign_up, name='sign_up'),
     path('create/user/', views.create_user, name='create_user'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('mypage/', views.my_page, name='my_page'),
+    path('<int:pk>/mypage/', views.my_page, name='my_page'),
 ]
