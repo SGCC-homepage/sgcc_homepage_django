@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .h1 {
+            font-size: 5.3vw;
+        }
+
+        .col-md-4 {
+            background-color: #FA8072;
+        }
+
+        .mypage-box {
+            margin: 0 3rem;
+        }
+
+        .deco-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.3vh;
+        }
+
+        @media (max-width: 768px) {
+            .deco-text {
+                display: none;
+            }
+
+            .mypage-box {
+                margin: 0;
+            }
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="p-5 mt-5">
+        <form method="post" action="{% url 'my_page_save' pk=user.pk %}">
+            {% csrf_token %}
+            <div class="row shadow mypage-box">
+                <div class="col-md-4 pt-5 pb-3 px-4">
+                    <div class="d-flex justify-content-start mb-3">
+                        <div style="width: 1vw; height: auto; background-color: #8fd19e"></div>
+                        <h1 class="h1 ml-2">My Page</h1>
+                    </div>
+                    <div class="d-flex justify-content-between position-relative">
+                        <div class="deco-text">
+                            margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",<br>
+                            "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+                            sans-serif;<br>
+                            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+                        </div>
+                        <div class="position-absolute bottom-0 end-0">
+                            <input type="submit" name="submit" value="저장" class="btn-sm btn-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 row p-5">
+                    <div class="d-flex justify-content-between mb-4">
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>이름</div>
+                        <div>{{ user.name }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>학과</div>
+                        <div>{{ user.major }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>전화번호</div>
+                         <div>{{ form.phone }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>이메일</div>
+                        <div>{{ form.email }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>학번</div>
+                        <div>{{ user.student_id }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>상태</div>
+                        <div>{{ form.state }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>등급</div>
+                        <div class="sc-dIUggk cBSNbt">{{ user.grade }}</div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>회비</div>
+                        <div>{{ user.dues_payment }}</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--
+        This HTML file is a template.
+        If you open it directly in the browser, you will see an empty page.
+        You can add webfonts, meta tags, or analytics to this file.
+        The build step will place the bundled scripts into the <body> tag.
+        To begin the development, run `npm start` or `yarn start`.
+        To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="/static/js/bundle.js"></script>
+    <script src="/static/js/vendors~main.chunk.js"></script>
+    <script src="/static/js/main.chunk.js"></script>
+{% endblock %}
+{% block footer %}
+    <footer class="footer small text-center text-black-50">
+        <div class="container">© 2021 SGCC, Inc.</div>
+    </footer>
+{% endblock %}

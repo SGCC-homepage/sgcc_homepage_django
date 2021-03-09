@@ -10,4 +10,6 @@ urlpatterns = [
     path('create/user/', views.create_user, name='create_user'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('<int:pk>/mypage/', views.my_page, name='my_page'),
+    path('<int:pk>/mypage/edit/', views.my_page_edit, name='my_page_edit'),
+    path('<int:pk>/mypage/save/', views.my_page_save, name='my_page_save'),
 ]

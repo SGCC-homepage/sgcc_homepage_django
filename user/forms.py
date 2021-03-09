@@ -24,13 +24,14 @@ class CreateAccount(UserCreationForm):
         }
 
 
-class LogIn(forms.ModelForm):
+class EditMyPage(forms.ModelForm):
     class Meta:
         model = User
 
-        fields = ['email', 'password']
+        fields = ['email', 'phone', 'state']
 
         widgets = {
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'password': forms.PasswordInput(attrs={'class': 'form-control'})
+            'email': forms.EmailInput(attrs={'class': 'text-end'}),
+            'phone': forms.TextInput(
+                attrs={'type': 'tel', 'pattern': "[0-9]{3}[0-9]{4}[0-9]{4}", 'class': 'text-end'}),
         }
