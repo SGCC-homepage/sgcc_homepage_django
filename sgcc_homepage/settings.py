@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'r-3o!(k9bb#h04@slh4tk7(ox44+v1-$#=#zud(4*)fz_)#km)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sgcc.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'user.User'
 
