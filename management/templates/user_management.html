@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block css %}
+    <style>
+    body{
+        background-color: #F2F2F2;
+    }
+    </style>
+{% endblock %}
 {% block content %}
     <div class="container text-center">
         <div class="mt-4">
@@ -67,6 +74,6 @@
 {% endblock %}
 {% block footer %}
     <div class="d-flex flex-row-reverse mb-3">
-        <a href="{% url 'delete_user' %}" class="btn-sm btn-info me-5">탈퇴 회원 삭제</a>
+        <a href="{% url 'delete_user' %}" class="btn-sm btn-danger me-5">탈퇴 회원 삭제</a>
     </div>
 {% endblock %}
