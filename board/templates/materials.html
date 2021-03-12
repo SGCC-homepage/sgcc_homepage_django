@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        body {
+            background-color: #F2F2F2;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="h-100 container mt-5 pt-5">
+        <h1 class="h1 mb-3">자료실</h1>
+        <ul class="list-group list-group-flush mb-5">
+            <li class="list-group-item">
+                <h4 class="pt-3">파이썬</h4>
+                <ul>
+                    <li><a href="https://wikidocs.net/book/1">[점프 투 파이썬] https://wikidocs.net/book/1</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <h4 class="pt-3">C/C++</h4>
+                <ul>
+                    <li><a href="https://modoocode.com/135">[씹어먹는 C++] https://modoocode.com/135</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <h4 class="pt-3">WEB</h4>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/ko/">[MDN 웹문서] https://developer.mozilla.org/ko/</a></li>
+                    <li><a href="https://getbootstrap.com/">[bootstrap4] https://getbootstrap.com/</a></li>
+                    <h6 class="mt-4">Django framework</h6>
+                    <ul>
+                        <li><a href="https://tutorial.djangogirls.org/ko/">[장고걸스] https://tutorial.djangogirls.org/ko/</a></li>
+                        <li><a href="https://docs.djangoproject.com/ko/3.1/intro/tutorial01/">[장고 공식 튜토리얼]https://docs.djangoproject.com/ko/3.1/intro/tutorial01/</a></li>
+                    </ul>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <h4 class="pt-3">ML</h4>
+                <ul>
+                    <li><a href="https://developers.google.com/machine-learning/crash-course/ml-intro?hl=ko">[Google Developer 머신러닝 단기집중과정]</a></li>
+                    <li><a href="https://hunkim.github.io/ml/">[모두를 위한 머신러닝/딥러닝 강의] https://hunkim.github.io/ml/</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <h4 class="pt-3">세미나</h4>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
