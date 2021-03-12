@@ -68,3 +68,36 @@
         </div>
     </section>
 {% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+    var isShow = false;
+
+    console.log($(window).width());
+
+    if ($(window).width() < 992) {
+        $('.introduction').removeClass('hide');
+        console.log($(window).width());
+        isShow = true;
+    } else {
+        console.log('hide');
+        $(window).on('scroll', function () {
+            checkVisible($('.contact-section'));
+        });
+    }
+
+    function checkVisible(elm, eval) {
+        var scrolltop = $(window).scrollTop(), // Scroll Top
+            y = $(elm).offset().top,
+            navbarHeight = $('.navbar').height();
+        if (navbarHeight + scrolltop + 350 > y && !isShow) {
+            $('.introduction').removeClass('hide');
+            $('.introduction').addClass('slide');
+            console.log('show');
+            isShow = true;
+        }
+    }
+
+
+</script>
+{% endblock %}

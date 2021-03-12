@@ -98,35 +98,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Third party plugin JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<script type="text/javascript">
-    var isShow = false;
-
-    console.log($(window).width());
-
-    if ($(window).width() < 992) {
-        $('.introduction').removeClass('hide');
-        console.log($(window).width());
-        isShow = true;
-    } else {
-        console.log('hide');
-        $(window).on('scroll', function () {
-            checkVisible($('.contact-section'));
-        });
-    }
-
-    function checkVisible(elm, eval) {
-        var scrolltop = $(window).scrollTop(), // Scroll Top
-            y = $(elm).offset().top,
-            navbarHeight = $('.navbar').height();
-        if (navbarHeight + scrolltop + 350 > y && !isShow) {
-            $('.introduction').removeClass('hide');
-            $('.introduction').addClass('slide');
-            console.log('show');
-            isShow = true;
-        }
-    }
-
-
-</script>
+{% block js %}
+{% endblock %}
 </body>
 </html>
