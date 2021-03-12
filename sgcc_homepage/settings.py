@@ -24,7 +24,7 @@ SECRET_KEY = 'r-3o!(k9bb#h04@slh4tk7(ox44+v1-$#=#zud(4*)fz_)#km)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['sgcc.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'user.User'
 

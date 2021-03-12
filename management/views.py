@@ -4,25 +4,23 @@ from user.models import *
 
 
 def user_management(request):
-    return render(request, 'user_management.html', {'users': dummy_users})
-
-
-def read_user(request):
-    users = User.objects.all()
-    print(users)
-
-    users = User.objects.values()
-    print(users)
-
-    # 이름 기준 오름차순 정렬
-    users = User.objects.values().order_by('name')
-    print(users)
-
-    # 이름 기준 내림차순 정렬
-    users = User.objects.values().order_by('-name')
-    print(users)
-
-    return render(request, 'user_management.html', {'users':users})
+    users = User.objects.all().order_by('name', 'username')
+    users_list = []
+    for user in users:
+        user_info = {
+            'pk': user.pk,
+            'name': user.name,
+            'student_id': user.username,
+            'major': user.get_major_display(),
+            'phone': user.phone,
+            'email': user.email,
+            'state': user.get_state_display(),
+            'grade': user.get_grade_display(),
+            'dues_payment': '납' if user.dues_payment else '미납',
+            'is_authenticated': user.is_authenticated
+        }
+        users_list.append(user_info)
+    return render(request, 'user_management.html', {'users': users_list})
 
 
 def delete_user(request):
