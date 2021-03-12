@@ -2,15 +2,20 @@
 {% load static %}
 {% block css %}
     <style>
-        .hide{
+        body {
+            background-color: #E67C59;
+        }
+
+        .hide {
             opacity: 0;
         }
+
         .slide {
             animation: slideup 1s;
         }
 
         @keyframes slideup {
-            from{
+            from {
                 opacity: 0;
                 margin-top: 100%;
             }
@@ -21,17 +26,23 @@
             }
         }
     </style>
+    <script type="text/javascript">
+        {% if mss == 'welcome' %}
+            createAlert(0);
+        {% endif %}
+    </script>
 {% endblock %}
 {% block content %}
     <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
             <div class="mx-auto text-center">
                 <h1 class="mx-auto my-0" style="font-weight: 600; color: #E67C59">ㅅㄱㅅㅅ</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5" style="color: #E67C59 !important; opacity: 0.6">서강대학교 유일 컴퓨터 중앙 동아리 SGCC</h2>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5" style="color: #E67C59 !important; opacity: 0.6">서강대학교 유일 컴퓨터
+                    중앙 동아리 SGCC</h2>
                 <a class="btn btn-primary js-scroll-trigger" href="http://pf.kakao.com/_xdHUxjK">플러스 친구 문의하기</a>
             </div>
         </div>
-{#    <i class="fas fa-angle-down mx-auto" size="9x"></i>#}
+        {#    <i class="fas fa-angle-down mx-auto" size="9x"></i>#}
     </header>
     <section class="contact-section position-relative h-100" style="background-color: #E67C59;">
         <div class="container introduction hide" style="color: #F2F2F2">
@@ -71,33 +82,31 @@
 
 {% block js %}
     <script type="text/javascript">
-    var isShow = false;
+        var isShow = false;
 
-    console.log($(window).width());
+        console.log($(document).width());
 
-    if ($(window).width() < 992) {
-        $('.introduction').removeClass('hide');
-        console.log($(window).width());
-        isShow = true;
-    } else {
-        console.log('hide');
-        $(window).on('scroll', function () {
-            checkVisible($('.contact-section'));
-        });
-    }
-
-    function checkVisible(elm, eval) {
-        var scrolltop = $(window).scrollTop(), // Scroll Top
-            y = $(elm).offset().top,
-            navbarHeight = $('.navbar').height();
-        if (navbarHeight + scrolltop + 350 > y && !isShow) {
+        if ($(document).width() < 992) {
             $('.introduction').removeClass('hide');
-            $('.introduction').addClass('slide');
-            console.log('show');
+            console.log($(document).width());
             isShow = true;
+        } else {
+            console.log('hide');
+            $(document).on('scroll', function () {
+                checkVisible($('.contact-section'));
+            });
         }
-    }
 
-
-</script>
+        function checkVisible(elm, eval) {
+            var scrolltop = $(window).scrollTop(), // Scroll Top
+                y = $(elm).offset().top,
+                navbarHeight = $('.navbar').height();
+            if (navbarHeight + scrolltop + 350 > y && !isShow) {
+                $('.introduction').removeClass('hide');
+                $('.introduction').addClass('slide');
+                console.log('show');
+                isShow = true;
+            }
+        }
+    </script>
 {% endblock %}

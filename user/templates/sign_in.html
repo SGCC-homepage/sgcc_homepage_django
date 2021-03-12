@@ -17,7 +17,7 @@
     <div class="card px-5 pb-3 mx-4 mx-auto shadow-sm light login-box">
         <div class="card-body">
             <h5 class="card-title pb-4">Sign in to SGCC</h5>
-            <form method="post" action="{% url 'sign_in' %}">
+            <form method="post" action="{% url 'sign_in' %}" onsubmit="createAlert(1)">
                 {% csrf_token %}
                 {% include "form_errors.html" %}
                 <div class="mb-3 text-left">
@@ -28,10 +28,17 @@
                     <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호</label>
                    {{ form.password }}
                 </div>
-                <input type="submit" name="Log in" value="Log in" class="w-100 btn btn-success mt-3"/>
+                <input type="submit" name="Log in" value="Log in" class="w-100 btn btn-success mt-3" onsubmit="createAlert(1)"/>
             </form>
         </div>
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    function createAlert(mss){
+        var alertMessage = mss===0? 'SGCC의 회원이 되신 걸 환영합니다!': (mss===1? '반가워요!': '또 오세요!');
+        console.log('submit');
+        alert(alertMessage);
+    }
+</script>
 </html>

@@ -27,7 +27,7 @@ def create_user(request):
             if user.check_password(form.cleaned_data['password2']):
                 user.save()
                 auth.login(request, user)
-                return redirect('main')
+                return render(request, 'main.html', {'mss': 'welcome'})
     else:
         form = CreateAccount()
 
