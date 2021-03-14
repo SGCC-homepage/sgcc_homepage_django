@@ -47,6 +47,17 @@
             console.log('submit');
             alert(alertMessage);
         }
+
+        function fixButton() {
+            var ariaExpanded = $('.navbar-toggler').attr('aria-expanded') === 'true';
+            if (ariaExpanded) {
+                $('#button-box').removeClass('d-flex');
+                $('#button-box').addClass('position-absolute top-0 end-0 mt-3 me-2');
+            } else{
+                $('#button-box').addClass('d-flex');
+                $('#button-box').removeClass('position-absolute top-0 end-0 mt-3 me-2');
+            }
+        }
     </script>
     {% block css %}
     {% endblock %}
@@ -55,8 +66,10 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'main' %}">SGCC</a>
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler me-auto" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                onclick="fixButton()">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -67,30 +80,10 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" aria-current="page" href="#">질문방</a>
                 </li>
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#">Link</a>#}
-{#                </li>#}
-{#                <li class="nav-item dropdown">#}
-{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"#}
-{#                       data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                        Dropdown#}
-{#                    </a>#}
-{#                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                        <li><a class="dropdown-item" href="#">Action</a></li>#}
-{#                        <li><a class="dropdown-item" href="#">Another action</a></li>#}
-{#                        <li>#}
-{#                            <hr class="dropdown-divider">#}
-{#                        </li>#}
-{#                        <li><a class="dropdown-item" href="#">Something else here</a></li>#}
-{#                    </ul>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>#}
-{#                </li>#}
             </ul>
         </div>
         {% if user.is_authenticated %}
-            <div class="d-flex ml-auto">
+            <div class="d-flex ml-auto" id="button-box">
                 <a href="{% url 'my_page' pk=user.pk %}" class="btn-sm btn-primary me-2">마이페이지</a>
                 <a href="{% url 'logout' %}" class="btn-sm btn-primary me-2" onclick="createAlert(2)">로그아웃</a>
                 {% if user.grade == 2 %}
@@ -98,7 +91,7 @@
                 {% endif %}
             </div>
         {% else %}
-            <div class="d-flex ml-auto">
+            <div class="d-flex ml-auto" id="button-box">
                 <a href="{% url 'sign_in' %}" class="btn-sm btn-primary me-2">로그인</a>
                 <a href="{% url 'sign_up' %}" class="btn-sm btn-primary">회원가입</a>
             </div>
@@ -114,5 +107,6 @@
 {% endblock %}
 {% block js %}
 {% endblock %}
+
 </body>
 </html>
