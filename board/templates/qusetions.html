@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        html, body{
+            height: 100% !important;
+        }
+
+        body {
+            background-color: #F2F2F2;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="h-100 container mt-5 pt-5">
+        <div class="card w-100 mb-5">
+            <div class="card-body">
+                <h5 class="card-title mb-4">#좋은_질문의_기준</h5>
+                {#                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>#}
+                <p class="card-text">- 목표가 "정확히" 무엇인가? 어떤 출력을 보아야 하는가?
+                    <br>- "정확히" "전체" 오류가 무엇인가? 어디에서 오류가 나는가?
+                    <br>- 이 오류를 보고 무엇을 해보았나? 검색을 했을때 무슨 결과를 보았는가? 검색 결과가 이해가 안되었는가? 검색해서 나온대로 따라 했는데도 안되었는가?
+                    <br>- 코드 전문</p>
+                <div class="text-right">
+                    <a href="#" class="card-link">질문하기</a>
+                </div>
+            </div>
+        </div>
+        <h1 class="h1 mb-3">질문</h1>
+        <div class="card w-100 mb-3">
+            <div class="card-body">
+                <h6 class="card-subtitle py-3 text-muted">모든 질문은 익명으로 게시되니 편하게 질문해주세요!</h6>
+                <table class="table mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">제목</th>
+                        <th scope="col">분류</th>
+                        <th scope="col">답변 개수</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>질무우우우ㅜㄴ1</td>
+                        <td>파이썬</td>
+                        <td>0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
