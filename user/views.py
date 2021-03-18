@@ -34,8 +34,9 @@ def create_user(request):
     return render(request, 'sign_up.html', {'form': form})
 
 
-def my_page(request, pk):
-    user = User.objects.get(pk=pk)
+def my_page(request):
+    print(request.user.username)
+    user = User.objects.get(username=request.user.username)
     user_info = {
         'pk': user.pk,
         'name': user.name,
