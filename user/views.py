@@ -52,8 +52,8 @@ def my_page(request):
     return render(request, 'my_page.html', {'user': user_info})
 
 
-def my_page_edit(request, pk):
-    user = User.objects.get(pk=pk)
+def my_page_edit(request):
+    user = User.objects.get(username=request.user.username)
     form = EditMyPage(instance=user)
     user_info = {
         'pk': user.pk,
@@ -70,11 +70,11 @@ def my_page_edit(request, pk):
     return render(request, 'my_page_edit.html', {'user': user_info, 'form': form})
 
 
-def my_page_save(request, pk):
-    user = User.objects.get(pk=pk)
+def my_page_save(request):
+    user = User.objects.get(username=request.user.username)
     if request.method == 'POST':
         form = EditMyPage(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('my_page', pk=pk)
-    return redirect('my_page_edit', pk=pk)
+            return redirect('my_page')
+    return redirect('my_page_edit')

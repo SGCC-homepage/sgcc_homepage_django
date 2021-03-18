@@ -36,7 +36,7 @@
 {% endblock %}
 {% block content %}
     <div class="p-5 mt-5">
-        <form method="post" action="{% url 'my_page_save' pk=user.pk %}">
+        <form method="post" action="{% url 'my_page_save' %}">
             {% csrf_token %}
             <div class="row shadow mypage-box">
                 <div class="col-md-4 pt-5 pb-3 px-4">
