@@ -13,9 +13,9 @@ class User(AbstractUser):
     STATE_CHOICE = [(0, '재학'), (1, '군휴학'), (2, '일반 휴학'), (3, '졸업'), (4, '교환')]
     GRADE_CHOICE = [(0, '신입'), (1, '일반'), (2, '운영진'), (3, '비활'), (4, '탈퇴')]
 
-    name = models.CharField(max_length=20, default='name')
+    name = models.CharField(max_length=20)
     major = models.IntegerField(choices=MAJOR_CHOICE, default=0)
-    phone = models.CharField(max_length=20, default='0')
+    phone = models.CharField(max_length=20)
     state = models.IntegerField(choices=STATE_CHOICE, default=0)
     grade = models.IntegerField(choices=GRADE_CHOICE, default=0)
     dues_payment = models.BooleanField(default=False)

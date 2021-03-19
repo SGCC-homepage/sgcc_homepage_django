@@ -1,26 +1,30 @@
 from django.shortcuts import render, redirect
+from django.http import Http404
 
 from user.models import *
 
 
 def user_management(request):
-    users = User.objects.all().order_by('name', 'username')
-    users_list = []
-    for user in users:
-        user_info = {
-            'pk': user.pk,
-            'name': user.name,
-            'student_id': user.username,
-            'major': user.get_major_display(),
-            'phone': user.phone,
-            'email': user.email,
-            'state': user.get_state_display(),
-            'grade': user.get_grade_display(),
-            'dues_payment': '납' if user.dues_payment else '미납',
-            'is_authenticated': user.is_authenticated
-        }
-        users_list.append(user_info)
-    return render(request, 'user_management.html', {'users': users_list})
+    if request.user.is_authenticated:
+        users = User.objects.all().order_by('name', 'username')
+        users_list = []
+        for user in users:
+            user_info = {
+                'pk': user.pk,
+                'name': user.name,
+                'student_id': user.username,
+                'major': user.get_major_display(),
+                'phone': user.phone,
+                'email': user.email,
+                'state': user.get_state_display(),
+                'grade': user.get_grade_display(),
+                'dues_payment': '납' if user.dues_payment else '미납',
+                'is_authenticated': user.is_authenticated
+            }
+            users_list.append(user_info)
+        return render(request, 'user_management.html', {'users': users_list})
+    else:
+        raise Http404('permission denied')
 
 
 def delete_user(request):

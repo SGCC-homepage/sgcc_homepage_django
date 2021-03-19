@@ -15,11 +15,11 @@ class CreateAccount(UserCreationForm):
         fields = ['name', 'username', 'major', 'username', 'phone', 'state', 'email', 'password1', 'password2']
 
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '실명으로 입력해주세요'}),
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'major': forms.Select(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'phone': forms.TextInput(attrs={'type': 'tel', 'pattern': "[0-9]{3}[0-9]{4}[0-9]{4}", 'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'type': 'tel', 'pattern': "[0-9]{3}[0-9]{4}[0-9]{4}", 'class': 'form-control', 'placeholder': '- 없이 입력해주세요 (예시: 01012345678)'}),
             'state': forms.Select(attrs={'class': 'form-control'}),
         }
 

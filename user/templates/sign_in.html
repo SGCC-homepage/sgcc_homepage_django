@@ -28,17 +28,10 @@
                     <label for="formGroupExampleInput" class="form-label w-100" style="text-align: left;">비밀번호</label>
                    {{ form.password }}
                 </div>
-                <input type="submit" name="Log in" value="Log in" class="w-100 btn btn-success mt-3" onsubmit="createAlert(1)"/>
+                <input type="submit" name="Log in" value="Log in" class="w-100 btn btn-success mt-3"/>
             </form>
         </div>
     </div>
 </div>
 </body>
-<script type="text/javascript">
-    function createAlert(mss){
-        var alertMessage = mss===0? 'SGCC의 회원이 되신 걸 환영합니다!': (mss===1? '반가워요!': '또 오세요!');
-        console.log('submit');
-        alert(alertMessage);
-    }
-</script>
 </html>
