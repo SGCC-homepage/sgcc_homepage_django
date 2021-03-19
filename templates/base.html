@@ -12,7 +12,8 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap"
+          rel="stylesheet">
     <!-- style.css -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
     <!-- jquery -->
@@ -54,7 +55,7 @@
             if (ariaExpanded) {
                 $('#button-box').removeClass('d-flex');
                 $('#button-box').addClass('position-absolute top-0 end-0 mt-3 me-2');
-            } else{
+            } else {
                 $('#button-box').addClass('d-flex');
                 $('#button-box').removeClass('position-absolute top-0 end-0 mt-3 me-2');
             }
@@ -73,16 +74,18 @@
                 onclick="fixButton()">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'materials' %}">자료실</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'questions' %}">질문방</a>
-                </li>
-            </ul>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'materials' %}">자료실</a>
+                    </li>
+                    {#                <li class="nav-item">#}
+                    {#                    <a class="nav-link active" aria-current="page" href="{% url 'questions' %}">질문방</a>#}
+                    {#                </li>#}
+                </ul>
+            </div>
+        {% endif %}
         {% if user.is_authenticated %}
             <div class="d-flex ml-auto" id="button-box">
                 <a href="{% url 'my_page' %}" class="btn-sm btn-primary me-2">마이페이지</a>
