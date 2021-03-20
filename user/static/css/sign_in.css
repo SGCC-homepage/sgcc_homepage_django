@@ -1,0 +1,17 @@
+body{
+    font-family: 'Nanum Gothic', sans-serif;;
+}
+
+.login-box {
+    max-width: 50vw;
+}
+
+@media (min-width: 992px) {
+    .login-box {
+        max-width: 35vw;
+    }
+}
+
+.h1{
+    font-weight: 400;
+}
