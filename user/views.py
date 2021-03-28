@@ -23,6 +23,7 @@ def create_user(request):
         if form.is_valid():
             print('유효')
             user = form.save(commit=False)
+            user.student_id = user.username
             user.set_password(form.cleaned_data['password1'])
             if user.check_password(form.cleaned_data['password2']):
                 user.save()
@@ -43,7 +44,7 @@ def my_page(request):
         'major': user.get_major_display(),
         'phone': user.phone,
         'email': user.email,
-        'student_id': user.username,
+        'student_id': user.student_id,
         'state': user.get_state_display(),
         'grade': user.get_grade_display(),
         'dues_payment': '납' if user.dues_payment else '미납',
@@ -61,7 +62,7 @@ def my_page_edit(request):
         'major': user.get_major_display(),
         'phone': user.phone,
         'email': user.email,
-        'student_id': user.username,
+        'student_id': user.student_id,
         'state': user.get_state_display(),
         'grade': user.get_grade_display(),
         'dues_payment': '납' if user.dues_payment else '미납',

@@ -12,7 +12,7 @@ class CreateAccount(UserCreationForm):
     class Meta:
         model = User
 
-        fields = ['name', 'username', 'major', 'username', 'phone', 'state', 'email', 'password1', 'password2']
+        fields = ['name', 'username', 'major', 'phone', 'state', 'email', 'password1', 'password2']
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '실명으로 입력해주세요'}),
