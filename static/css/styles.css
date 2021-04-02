@@ -10680,6 +10680,7 @@ body {
 
 #mainNav {
     min-height: 3.5rem;
+    background-color: #F2F2F2 !important;
 }
 
 #mainNav .navbar-toggler {
@@ -10717,7 +10718,6 @@ body {
         padding-top: 0;
         padding-bottom: 0;
         border-bottom: none;
-        transition: background-color 0.3s ease-in-out;
     }
 
     #mainNav .nav-link:hover {
