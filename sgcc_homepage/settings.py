@@ -23,7 +23,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = 'r-3o!(k9bb#h04@slh4tk7(ox44+v1-$#=#zud(4*)fz_)#km)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['18.190.43.125', '127.0.0.1', 'sgcc.me', 'www.sgcc.me']
 
@@ -125,6 +125,10 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+
+
+MEDIA_ROOT = os.path.join(ROOT_DIR, '.media_root')
+MEDIA_URL = '/media/'
 
 
 
