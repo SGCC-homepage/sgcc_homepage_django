@@ -1,5 +1,11 @@
 from django.db import models
+from django import forms
 from django.contrib.auth.models import BaseUserManager, AbstractUser
+
+
+def student_id_validator(value):
+    if len(value) != 8:
+        raise forms.ValidationError('학번 8글자 모두 입력해주세요(예시: 20210001)')
 
 
 class UserManager(BaseUserManager):
@@ -49,7 +55,7 @@ class User(AbstractUser):
     GRADE_CHOICE = [(0, '신입'), (1, '일반'), (2, '운영진'), (3, '비활'), (4, '탈퇴')]
 
     name = models.CharField(max_length=20)
-    student_id = models.CharField(max_length=20, unique=True)
+    student_id = models.CharField(max_length=20, unique=True, validators=[student_id_validator])
     email = models.EmailField(
         verbose_name='email',
         max_length=255,
@@ -66,3 +72,4 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.name + '('+self.student_id+')'
+

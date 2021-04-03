@@ -10,8 +10,10 @@ def user_management(request):
         if user.grade == 2:
             users = User.objects.all().order_by('name', 'username')
             users_list = []
+            i = 1
             for user in users:
                 user_info = {
+                    'index': i,
                     'pk': user.pk,
                     'name': user.name,
                     'student_id': user.username,
@@ -24,6 +26,7 @@ def user_management(request):
                     'is_authenticated': user.is_authenticated
                 }
                 users_list.append(user_info)
+                i+=1
             return render(request, 'user_management.html', {'users': users_list})
         else:
             raise Http404('permission denied')
