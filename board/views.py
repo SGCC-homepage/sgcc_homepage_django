@@ -6,8 +6,25 @@ from .models import *
 
 
 def materials(request):
-    return render(request, 'materials.html')
+    all_category = Category.objects.all()
+    materials = []
+    for category in all_category:
+        category_dict = {'category': category.name}
+        materials_of_category = Material.objects.filter(main_category__name=category.name)
+        category_dict['contents'] = materials_of_category
+        materials.append(category_dict)
+    return render(request, 'materials.html', {'materials': materials})
 
+
+''' materials structure
+[
+    {
+        'category': 'python',
+        'contents': QuerySet<Material>
+    },
+    ...
+]
+'''
 
 def reports(request):
     mss = ''
@@ -54,8 +71,19 @@ def reports(request):
 def add_material(request):
     if request.method == "POST":
         form = request.POST
-        if form.get('main_category') == '-1':
-            print(form.get('add_main_category'))
-        print(form.get('contents'))
-        print(request.POST)
-    return render(request, 'materials.html')
+        print(form)
+        main_category = form.get('main_category')
+        if main_category == '-1':
+            new_category = form.get('add_main_category')
+            if len(Category.objects.filter(name=new_category)) == 0:
+                category_obj = Category(name=new_category)
+                category_obj.save()
+                Material.objects.create(main_category=category_obj, contents=form.get('contents'))
+                return redirect('materials')
+            else:
+                main_category = new_category
+        if len(Category.objects.filter(name=main_category)) == 1:
+            category_obj = Category.objects.get(name=main_category)
+            Material.objects.create(main_category=category_obj, contents=form.get('contents'))
+            return redirect('materials')
+    return render(request, 'materials.html', {'mss': '생성 실패'})

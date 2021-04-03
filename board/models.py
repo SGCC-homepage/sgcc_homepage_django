@@ -12,7 +12,6 @@ class Category(models.Model):
 class Material(models.Model):
     main_category = models.ForeignKey(Category, on_delete=models.CASCADE)
     contents = models.TextField()
-    image = models.FileField(null=True)
 
     def __str__(self):
         return '(' + str(self.main_category_id) + ')' + self.pk

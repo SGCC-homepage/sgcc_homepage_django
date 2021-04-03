@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
 
-class CreateReportForm(forms.Form):
-    title = forms.CharField()
-    team = forms.CharField()
+class CreateMaterialForm(forms.Form):
+    main_category = forms.CharField()
+    add_main_category = forms.CharField()
+    contents = forms.CharField()
