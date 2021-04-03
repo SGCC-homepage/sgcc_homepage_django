@@ -14,7 +14,7 @@ class Material(models.Model):
     contents = models.TextField()
 
     def __str__(self):
-        return '(' + str(self.main_category_id) + ')' + self.pk
+        return '(' + str(self.main_category.name) + ')' + str(self.pk)
 
 
 class Team(models.Model):
