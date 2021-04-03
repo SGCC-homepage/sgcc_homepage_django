@@ -111,3 +111,16 @@ dummy_users = [
         'dues_payment': 'false',
     }
 ]
+
+
+def change_dues_payment(request):
+    if request.method == "POST":
+        form = request.POST
+        username = form.get('username')
+        user = User.objects.get(username=username)
+        if user.dues_payment:
+            user.dues_payment = False
+        else:
+            user.dues_payment = True
+        user.save()
+    return redirect('user_management')
