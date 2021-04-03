@@ -109,6 +109,8 @@
                 <a href="{% url 'logout' %}" class="btn-sm btn-primary me-2" onclick="createAlert(2)">로그아웃</a>
                 {% if user.grade == 2 %}
                     <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
+                {% elif grade == 2 %}
+                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
                 {% endif %}
             </div>
         {% else %}

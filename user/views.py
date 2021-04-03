@@ -50,7 +50,7 @@ def my_page(request):
         'dues_payment': '납' if user.dues_payment else '미납',
         'is_authenticated': user.is_authenticated
     }
-    return render(request, 'my_page.html', {'user': user_info})
+    return render(request, 'my_page.html', {'user': user_info, 'grade': user.grade})
 
 
 def my_page_edit(request):
@@ -68,7 +68,7 @@ def my_page_edit(request):
         'dues_payment': '납' if user.dues_payment else '미납',
         'is_authenticated': user.is_authenticated
     }
-    return render(request, 'my_page_edit.html', {'user': user_info, 'form': form})
+    return render(request, 'my_page_edit.html', {'user': user_info, 'form': form, 'grade': user.grade})
 
 
 def my_page_save(request):

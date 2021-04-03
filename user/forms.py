@@ -23,10 +23,6 @@ class CreateAccount(UserCreationForm):
             'state': forms.Select(attrs={'class': 'form-control'}),
         }
 
-        def clean(self):
-            cleaned_data = super().clean()
-
-
 
 class EditMyPage(forms.ModelForm):
     class Meta:
