@@ -7,28 +7,34 @@
         }
 
         .h1 {
-            font-size: 4.8vw;
+            font-size: 6.3vw;
             font-family: 'Black Han Sans', sans-serif;
         }
 
-        .p-5 {
-            padding: 5rem !important;
+        @media (max-width: 991.9px) {
+            .h1{
+                font-size: 8vw;
+            }
+            .col-lg-5{
+                padding-left: 2rem !important;
+                padding-right: 3rem !important;
+            }
         }
 
         .edit {
             font-size: 0.85rem;
         }
 
-        .col-lg-4 {
+        .col-lg-5 {
             background-color: #E67C59;
         }
 
-        .col-lg-8 {
+        .col-lg-7 {
             font-size: 1.2rem;
         }
 
         .mypage-box {
-            margin: 0 3rem;
+            padding: 0 5rem 5rem 5rem;
         }
 
         .deco-text {
@@ -48,7 +54,7 @@
         }
 
         .end-0 {
-            right: 0.75rem !important;
+            right: 1rem !important;
         }
 
         .bottom-0 {
@@ -57,54 +63,54 @@
     </style>
 {% endblock %}
 {% block content %}
-    <div class="p-5 mt-5">
-        <div class="row shadow mypage-box">
-            <div class="col-lg-4 pt-5 pb-4 px-4">
+    <div class="mt-5 mypage-box">
+        <div class="row shadow">
+            <div class="col-lg-5 pt-5 pb-4 px-4">
                 <div class="d-flex justify-content-start mb-3">
                     <div style="width: 0.75vw; height: auto; background-color: rgba(38, 2, 2, 0.8);"></div>
                     <h1 class="h1 ml-2">My Page</h1>
                 </div>
                 <div class="deco-text mb-3">
-                    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",<br>
-                    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",<br>
-                    sans-serif;<br>
-                    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",<br>
+                    "Roboto", "Oxygen", "Ubuntu", "Cantarell",<br>
+                    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;<br>
+                    -webkit-font-smoothing: antialiased;
                 </div>
                 <a href="{% url 'my_page_edit' %}"
                    class="btn-sm btn-light edit position-absolute bottom-0 end-0 mb-3">수정하기</a>
             </div>
-            <div class="col-lg-8 row p-5">
-                <div class="d-flex justify-content-between mb-4">
+            <div class="col-lg-7 row p-5">
+                <div class="d-flex justify-content-between mb-3 px-4">
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>이름</div>
                     <div>{{ user.name }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>학과</div>
                     <div>{{ user.major }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>전화번호</div>
                     <div>{{ user.phone }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>이메일</div>
                     <div>{{ user.email }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>학번</div>
                     <div>{{ user.student_id }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>상태</div>
                     <div>{{ user.state }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>등급</div>
                     <div class="sc-dIUggk cBSNbt">{{ user.grade }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="d-flex justify-content-between mb-3 px-4">
                     <div>회비</div>
                     <div>{{ user.dues_payment }}</div>
                 </div>
