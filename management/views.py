@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 
 from user.models import *
+from .forms import *
 
 
 def user_management(request):
@@ -12,6 +13,7 @@ def user_management(request):
             users_list = []
             i = 1
             for user in users:
+                form = ChangeUserGrade(instance=user)
                 user_info = {
                     'index': i,
                     'pk': user.pk,
@@ -23,7 +25,8 @@ def user_management(request):
                     'state': user.get_state_display(),
                     'grade': user.get_grade_display(),
                     'dues_payment': '납' if user.dues_payment else '미납',
-                    'is_authenticated': user.is_authenticated
+                    'is_authenticated': user.is_authenticated,
+                    'form': form
                 }
                 users_list.append(user_info)
                 i+=1
@@ -122,5 +125,15 @@ def change_dues_payment(request):
             user.dues_payment = False
         else:
             user.dues_payment = True
+        user.save()
+    return redirect('user_management')
+
+
+def change_user_grade(request):
+    if request.method == "POST":
+        form = request.POST
+        username = form.get('username')
+        user = User.objects.get(username=username)
+        user.grade = form.get('grade')
         user.save()
     return redirect('user_management')
