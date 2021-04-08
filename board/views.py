@@ -1,19 +1,24 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.http import Http404
 
 from .forms import *
 from .models import *
+from user.models import *
 
 
 def materials(request):
-    all_category = Category.objects.all()
-    materials = []
-    for category in all_category:
-        category_dict = {'category': category.name}
-        materials_of_category = Material.objects.filter(main_category__name=category.name)
-        category_dict['contents'] = materials_of_category
-        materials.append(category_dict)
-    return render(request, 'materials.html', {'materials': materials})
+    if User.objects.filter(username=request.user.username):
+        all_category = Category.objects.all()
+        materials = []
+        for category in all_category:
+            category_dict = {'category': category.name}
+            materials_of_category = Material.objects.filter(main_category__name=category.name)
+            category_dict['contents'] = materials_of_category
+            materials.append(category_dict)
+        return render(request, 'materials.html', {'materials': materials})
+    else:
+        raise Http404('permission denied')
 
 
 ''' materials structure
@@ -27,45 +32,48 @@ def materials(request):
 '''
 
 def reports(request):
-    mss = ''
+    if User.objects.filter(username=request.user.username):
+        mss = ''
 
-    if request.method == "POST":
-        form = request.POST
-        file = request.FILES
-        print(form, file)
-        team = form.get('team')
-        if team == '-1':
-            print('팀 생성')
-            team_obj = Team(name=form.get('add_team'))
-            team_obj.save()
-        else:
-            if len(Team.objects.filter(name=team)) == 1:
-                print('팀 발견')
-                team_obj = Team.objects.get(name=team)
+        if request.method == "POST":
+            form = request.POST
+            file = request.FILES
+            print(form, file)
+            team = form.get('team')
+            if team == '-1':
+                print('팀 생성')
+                team_obj = Team(name=form.get('add_team'))
+                team_obj.save()
             else:
-                mss = '팀명을 다시 확인해주세요'
-        if len(Report.objects.filter(title=form.get('title'), team=team_obj)) == 0:
-            report_obj = Report(title=form.get('title'), team=team_obj, report=file.get('report'))
-            report_obj.save()
-        else:
-            report_obj = Report.objects.get(title=form.get('title'), team=team_obj)
-            report_obj.report = file.get('report')
-            report_obj.save()
-            mss = '보고서가 덮어씌워졌습니다'
+                if len(Team.objects.filter(name=team)) == 1:
+                    print('팀 발견')
+                    team_obj = Team.objects.get(name=team)
+                else:
+                    mss = '팀명을 다시 확인해주세요'
+            if len(Report.objects.filter(title=form.get('title'), team=team_obj)) == 0:
+                report_obj = Report(title=form.get('title'), team=team_obj, report=file.get('report'))
+                report_obj.save()
+            else:
+                report_obj = Report.objects.get(title=form.get('title'), team=team_obj)
+                report_obj.report = file.get('report')
+                report_obj.save()
+                mss = '보고서가 덮어씌워졌습니다'
 
-    all_reports = Report.objects.all()
-    reports = []
-    for report in all_reports:
-        report_info = {
-            'title': report.title,
-            'team': report.team.name,
-            'date': report.date.strftime("%Y.%m.%d"),
-            'report': report.report
-        }
-        reports.append(report_info)
-    all_teams = Team.objects.all()
+        all_reports = Report.objects.all()
+        reports = []
+        for report in all_reports:
+            report_info = {
+                'title': report.title,
+                'team': report.team.name,
+                'date': report.date.strftime("%Y.%m.%d"),
+                'report': report.report
+            }
+            reports.append(report_info)
+        all_teams = Team.objects.all()
 
-    return render(request, 'reports.html', {'reports': reports, 'teams': all_teams, 'mss': mss})
+        return render(request, 'reports.html', {'reports': reports, 'teams': all_teams, 'mss': mss})
+    else:
+        raise Http404('permission denied')
 
 
 def add_material(request):
