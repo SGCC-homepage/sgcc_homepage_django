@@ -28,7 +28,7 @@ class EditMyPage(forms.ModelForm):
     class Meta:
         model = User
 
-        fields = ['email', 'phone', 'state']
+        fields = ['email', 'phone', 'state', 'major']
 
         widgets = {
             'email': forms.EmailInput(attrs={'class': 'text-end'}),
