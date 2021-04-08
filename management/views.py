@@ -9,6 +9,7 @@ def user_management(request):
     if request.user.is_authenticated:
         user = User.objects.get(username=request.user.username)
         if user.grade == 2:
+            # users = User.objects.all().order_by('name', 'username')
             users = User.objects.all().order_by('name', 'username')
             users_list = []
             i = 1
