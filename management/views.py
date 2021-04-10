@@ -31,7 +31,7 @@ def user_management(request):
                 }
                 users_list.append(user_info)
                 i+=1
-            return render(request, 'user_management.html', {'users': users_list})
+            return render(request, 'user_management.html', {'users': users_list, 'total': len(users), 'pay': len(users.filter(dues_payment=True)), 'new': len(users.filter(grade=0)), 'general': len(users.filter(grade=1)), 'inactive': len(users.filter(grade=3))})
         else:
             raise Http404('permission denied')
     else:
