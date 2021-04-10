@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib import auth
 
@@ -11,8 +12,16 @@ def main(request):
 
 
 def sign_up(request):
-    form = CreateAccount()
-    return render(request, 'sign_up.html', {'form': form})
+    if User.objects.filter(username=request.user.username):
+        user = User.objects.get(username=request.user.username)
+        if user.grade == 2:
+            form = CreateAccount()
+            return render(request, 'sign_up.html', {'form': form})
+        else:
+            raise Http404('permission denied')
+    else:
+        raise Http404('permission denied')
+
 
 
 def create_user(request):

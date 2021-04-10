@@ -116,10 +116,16 @@
         {% else %}
             <div class="d-flex ml-auto" id="button-box">
                 <a href="{% url 'sign_in' %}" class="btn-sm btn-primary me-2">로그인</a>
-                <a href="{% url 'sign_up' %}" class="btn-sm btn-primary">회원가입</a>
+{#                <a href="{% url 'sign_up' %}" class="btn-sm btn-primary">회원가입</a>#}
+                <a class="btn-sm btn-primary" onclick="blockSignUp()" style="cursor: pointer;">회원가입</a>
             </div>
         {% endif %}
     </div>
+    <script type="text/javascript">
+        function blockSignUp(){
+            alert("회원가입 기간이 아닙니다.");
+        }
+    </script>
 </nav>
 {% block content %}
 {% endblock %}
