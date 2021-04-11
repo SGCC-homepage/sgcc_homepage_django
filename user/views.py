@@ -12,15 +12,17 @@ def main(request):
 
 
 def sign_up(request):
-    if User.objects.filter(username=request.user.username):
-        user = User.objects.get(username=request.user.username)
-        if user.grade == 2:
-            form = CreateAccount()
-            return render(request, 'sign_up.html', {'form': form})
-        else:
-            raise Http404('permission denied')
-    else:
-        raise Http404('permission denied')
+    form = CreateAccount()
+    return render(request, 'sign_up.html', {'form': form})
+    # if User.objects.filter(username=request.user.username):
+    #     user = User.objects.get(username=request.user.username)
+    #     if user.grade == 2:
+    #         form = CreateAccount()
+    #         return render(request, 'sign_up.html', {'form': form})
+    #     else:
+    #         raise Http404('permission denied')
+    # else:
+    #     raise Http404('permission denied')
 
 
 

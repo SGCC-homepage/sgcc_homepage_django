@@ -75,7 +75,7 @@
                     <ul>
                         {% for each_contents in material.contents %}
                             <li>
-                                <div>{{ each_contents.contents }}</div>
+                                <div>{{ each_contents.contents | linebreaksbr }}</div>
                             </li>
                         {% endfor %}
                     </ul>
