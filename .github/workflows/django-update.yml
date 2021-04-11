@@ -25,10 +25,12 @@ jobs:
             cd /home/ubuntu/sgcc_homepage_django
             git pull origin master
             sleep 5
+            source venv/bin/activate
             echo yes | python3 manage.py collectstatic
             python3 manage.py makemigrations
             python3 manage.py migrate
             sleep 5
+            deactivate
             sudo systemctl restart gunicorn
             sudo systemctl restart nginx
             echo "done!"
