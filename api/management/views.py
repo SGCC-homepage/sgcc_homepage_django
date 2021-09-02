@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
 
-from user.models import *
 from .forms import *
 
 
@@ -31,7 +30,7 @@ def user_management(request):
                 }
                 users_list.append(user_info)
                 i+=1
-            return render(request, 'user_management.html', {'users': users_list, 'total': len(users), 'pay': len(users.filter(dues_payment=True)), 'new': len(users.filter(grade=0)), 'general': len(users.filter(grade=1)), 'inactive': len(users.filter(grade=3))})
+            return render(request, 'templates/user_management.html', {'users': users_list, 'total': len(users), 'pay': len(users.filter(dues_payment=True)), 'new': len(users.filter(grade=0)), 'general': len(users.filter(grade=1)), 'inactive': len(users.filter(grade=3))})
         else:
             raise Http404('permission denied')
     else:

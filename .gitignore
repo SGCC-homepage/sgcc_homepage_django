@@ -315,9 +315,9 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,pycharm
 
-board/migrations/**
-!board/migrations/__init__.py
-user/migrations/**
-!user/migrations/__init__.py
-management/migrations/**
-!management/migrations/__init__.py
+api/board/migrations/**
+!api/board/migrations/__init__.py
+api/user/migrations/**
+!api/user/migrations/__init__.py
+api/management/migrations/**
+!api/management/migrations/__init__.py

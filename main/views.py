@@ -1,10 +1,8 @@
-from django.contrib.auth import authenticate
-from django.http import Http404
+from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib import auth
 
 from .forms import *
-from .models import *
 
 
 def main(request):
@@ -23,7 +21,6 @@ def sign_up(request):
     #         raise Http404('permission denied')
     # else:
     #     raise Http404('permission denied')
-
 
 
 def create_user(request):

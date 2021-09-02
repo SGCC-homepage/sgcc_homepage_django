@@ -1,8 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import *
-from user.models import *
+from api.user.models import *
 
 
 # abstractuser의 username을 학번으로 사용
@@ -25,21 +24,14 @@ class CreateAccount(UserCreationForm):
         }
 
 
-def find_pk(instance):
-    pk = instance.pk
-    return str(pk)
-
-
-class ChangeUserGrade(forms.ModelForm):
-    # grade = forms.ChoiceField(widget=forms.Select(attrs={'id': 'change-user-grade', 'onchange': 'SubmitForm('+ find_pk(instance) +')'}))
-
+class EditMyPage(forms.ModelForm):
     class Meta:
         model = User
 
-        fields = ['grade', 'username']
+        fields = ['email', 'phone', 'state', 'major']
 
         widgets = {
-            'username': forms.HiddenInput(),
+            'email': forms.EmailInput(attrs={'class': 'text-end'}),
+            'phone': forms.TextInput(
+                attrs={'type': 'tel', 'pattern': "[0-9]{3}[0-9]{4}[0-9]{4}", 'class': 'text-end'}),
         }
-
-

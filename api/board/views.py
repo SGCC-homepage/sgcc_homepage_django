@@ -1,10 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.http import Http404
 
-from .forms import *
 from .models import *
-from user.models import *
 
 
 def materials(request):
@@ -16,7 +13,7 @@ def materials(request):
             materials_of_category = Material.objects.filter(main_category__name=category.name)
             category_dict['contents'] = materials_of_category
             materials.append(category_dict)
-        return render(request, 'materials.html', {'materials': materials})
+        return render(request, 'templates/materials.html', {'materials': materials})
     else:
         raise Http404('permission denied')
 
@@ -71,7 +68,7 @@ def reports(request):
             reports.append(report_info)
         all_teams = Team.objects.all()
 
-        return render(request, 'reports.html', {'reports': reports, 'teams': all_teams, 'mss': mss})
+        return render(request, 'templates/reports.html', {'reports': reports, 'teams': all_teams, 'mss': mss})
     else:
         raise Http404('permission denied')
 
@@ -94,4 +91,4 @@ def add_material(request):
             category_obj = Category.objects.get(name=main_category)
             Material.objects.create(main_category=category_obj, contents=form.get('contents'))
             return redirect('materials')
-    return render(request, 'materials.html', {'mss': '생성 실패'})
+    return render(request, 'templates/materials.html', {'mss': '생성 실패'})

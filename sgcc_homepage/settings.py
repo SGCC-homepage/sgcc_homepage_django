@@ -13,8 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT_DIR = os.path.dirname(BASE_DIR)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -23,7 +22,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = 'r-3o!(k9bb#h04@slh4tk7(ox44+v1-$#=#zud(4*)fz_)#km)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['18.190.43.125', '127.0.0.1', 'sgcc.me', 'www.sgcc.me']
 
@@ -31,10 +30,7 @@ AUTH_USER_MODEL = 'user.User'
 
 # Application definition
 
-INSTALLED_APPS = [
-    'user',
-    'board',
-    'management',
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LOCAL_APPS = [
+    'api.user',
+    'api.board',
+    'api.management',
+    'main'
+]
+
+THIRD_PARTY_APPS = [
+    'rest_framework'
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +88,7 @@ WSGI_APPLICATION = 'sgcc_homepage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR + 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -118,17 +127,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+SITE_NAME = 'around-us'
+
 STATIC_URL = '/static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / 'static'
 
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
-STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
-
-
-MEDIA_ROOT = os.path.join(ROOT_DIR, '.media_root')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
