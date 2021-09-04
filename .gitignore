@@ -321,3 +321,6 @@ api/user/migrations/**
 !api/user/migrations/__init__.py
 api/management/migrations/**
 !api/management/migrations/__init__.py
+
+# Django settings
+.config/secret_key/settings.json
