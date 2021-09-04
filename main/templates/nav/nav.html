@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main' %}">< SGCC ></a>
+        {% if user.is_authenticated %}
+            <div class="contents pl-3">
+                <ul class="navbar-nav flex-row">
+{#                    <li class="nav-item d-inline">#}
+{#                        <a class="nav-link active" aria-current="page" href="{% url 'materials' %}">자료실</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item d-inline">#}
+{#                        <a class="nav-link active" aria-current="page" href="{% url 'reports' %}">보고서</a>#}
+{#                    </li>#}
+                </ul>
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <div class="d-flex ml-auto" id="button-box">
+{#                <a href="{% url 'my_page' %}" class="btn-sm btn-primary me-2">마이페이지</a>#}
+                <a href="{% url 'logout' %}" class="btn-sm btn-primary me-2" onclick="createAlert(2)">로그아웃</a>
+                {% if user.grade == 4 %}
+                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
+                {% elif grade == 4 %}
+                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="d-flex ml-auto" id="button-box">
+                <a href="{% url 'sign_in' %}" class="btn-sm btn-primary me-2">로그인</a>
+{#                <a href="{% url 'register' %}" class="btn-sm btn-primary">회원가입</a>#}
+            </div>
+        {% endif %}
+    </div>
+    <script type="text/javascript">
+        function blockSignUp(){
+            alert("회원가입 기간이 아닙니다.");
+        }
+    </script>
+</nav>

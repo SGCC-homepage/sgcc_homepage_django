@@ -24,7 +24,8 @@ SECRET_KEY = 'r-3o!(k9bb#h04@slh4tk7(ox44+v1-$#=#zud(4*)fz_)#km)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['18.190.43.125', '127.0.0.1', 'sgcc.me', 'www.sgcc.me']
+# ALLOWED_HOSTS = ['18.190.43.125', '127.0.0.1:8000', 'sgcc.me', 'www.sgcc.me']
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'user.User'
 
@@ -42,7 +43,6 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'api.user',
     'api.board',
-    'api.management',
     'main'
 ]
 
@@ -130,14 +130,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-SITE_NAME = 'around-us'
+SITE_NAME = 'sgcc'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
 
 
 LOGIN_REDIRECT_URL = '/'

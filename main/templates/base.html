@@ -9,16 +9,17 @@
     <meta name="keywords" content="SGCC, 스그스스, 서강대학교">
     <meta name="author" content="myeee">
     <title>SGCC</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- CSS only -->
+    <!--- bootstrap --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- style.css -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
     <!-- jquery -->
@@ -87,46 +88,7 @@
     {% block css %}
     {% endblock %}
 </head>
-<body class="w-100">
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'main' %}">< SGCC ></a>
-        {% if user.is_authenticated %}
-            <div class="contents pl-3">
-                <ul class="navbar-nav flex-row">
-                    <li class="nav-item d-inline">
-                        <a class="nav-link active" aria-current="page" href="{% url 'materials' %}">자료실</a>
-                    </li>
-                    <li class="nav-item d-inline">
-                        <a class="nav-link active" aria-current="page" href="{% url 'reports' %}">보고서</a>
-                    </li>
-                </ul>
-            </div>
-        {% endif %}
-        {% if user.is_authenticated %}
-            <div class="d-flex ml-auto" id="button-box">
-                <a href="{% url 'my_page' %}" class="btn-sm btn-primary me-2">마이페이지</a>
-                <a href="{% url 'logout' %}" class="btn-sm btn-primary me-2" onclick="createAlert(2)">로그아웃</a>
-                {% if user.grade == 2 %}
-                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
-                {% elif grade == 2 %}
-                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
-                {% endif %}
-            </div>
-        {% else %}
-            <div class="d-flex ml-auto" id="button-box">
-                <a href="{% url 'sign_in' %}" class="btn-sm btn-primary me-2">로그인</a>
-                <a href="{% url 'sign_up' %}" class="btn-sm btn-primary">회원가입</a>
-{#                <a class="btn-sm btn-primary" onclick="blockSignUp()" style="cursor: pointer;">회원가입</a>#}
-            </div>
-        {% endif %}
-    </div>
-    <script type="text/javascript">
-        function blockSignUp(){
-            alert("회원가입 기간이 아닙니다.");
-        }
-    </script>
-</nav>
+<body>
 {% block content %}
 {% endblock %}
 {% block footer %}
@@ -136,6 +98,5 @@
 {% endblock %}
 {% block js %}
 {% endblock %}
-
 </body>
 </html>

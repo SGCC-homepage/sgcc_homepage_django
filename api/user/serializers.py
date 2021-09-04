@@ -10,9 +10,11 @@ class RegisterSGCCSerializer(serializers.Serializer):
     username = serializers.CharField()
     email = serializers.EmailField()
     major = serializers.IntegerField()
+    second_major = serializers.IntegerField(required=False)
+    third_major = serializers.IntegerField(required=False)
     phone = serializers.CharField()
-    password = serializers.CharField(write_only=True)
-    password_confirm = serializers.CharField(write_only=True)
+    password1 = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True)
 
     reason = serializers.CharField()
     read_notice = serializers.BooleanField()
@@ -28,8 +30,8 @@ class RegisterSGCCSerializer(serializers.Serializer):
         major = attrs.get('major')
         if major >= major_len:
             raise ValidationError({'major': '유효하지 않은 전공입니다.'})
-        password = attrs.get('password')
-        password_confirm = attrs.get('password_confirm')
+        password = attrs.get('password1')
+        password_confirm = attrs.get('password2')
         if password != password_confirm:
             raise ValidationError({'password': '비밀번호가 일치하지 않습니다.'})
 

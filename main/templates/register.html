@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+{% block content %}
+    {% include 'nav/nav_only_sgcc.html'%}
+    <div class="container py-5" style="min-height: 93vh;">
+        <h2 class="h2 text-center mb-4 pt-4">SGCC 가입신청서</h2>
+        <div class="join-box mx-auto px-3">
+            {% include "form_errors.html" %}
+            <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+                <h3 class="h3 mb-3">개인 정보</h3>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">이름</label>
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">학번</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">전공(본전공)</label>
+                    {{ form.major }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">전공(제 2전공)</label>
+                    {{ form.second_major }}
+                    <div class="help-block">복수전공(2전공)이 있는 경우에만 기입해주세요.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">전공(제 3전공)</label>
+                    {{ form.third_major }}
+                    <div class="help-block">복수전공(3전공)이 있는 경우에만 기입해주세요.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">이메일(G메일 권장)</label>
+                    {{ form.email }}
+                    <div class="help-block">SGCC 공식 드라이브 운영을 위한 것이니 G메일 주소를 권장합니다.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">전화번호</label>
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">비밀번호</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">비밀번호
+                        확인</label>
+                    {{ form.password2 }}
+                </div>
+                <h3 class="h3 mb-3 mt-5">가입사유</h3>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label w-100">
+                        동아리 가입을 희망하시는 사유를 자유롭게 적어주세요. 적어주신 내용은 동아리 운영에 참고하겠습니다.(ex. 스터디 운영, 친목활동 개최 등)
+                        지원자가 많을 경우 적어주신 가입 사유를 통해서 합격/불합격 여부가 결정될 수 있으니 지나치게 성의없는 내용은 삼가 주시기 바랍니다!
+                    </label>
+                    {{ form.reason }}
+                </div>
+                <h3 class="h3 mb-3 mt-5">가입 안내사항</h3>
+                <div class="form-label w-100">
+                    동아리 회비는 10000원으로, 회비를 내지 않을 시 활동 불가함을 인지해주시기 바랍니다.
+                    첫 학기는 의무 활동기간이며, 이후 활동조사를 통해 동아리 비활동(탈퇴와는 성격이 다릅니다.)을 선택하실 수 있습니다.
+                    회비는 동아리 운영에 사용될 예정이며, 자세한 사용 내역을 개강총회 또는 종강총회에서 공지해드리고 있습니다.
+                </div>
+                <div class="form-check">
+                    {{ form.read_notice }}
+                    <label class="form-check-label" for="flexCheckChecked">
+                        확인했습니다.
+                    </label>
+                </div>
+                <input type="submit" name="submit" value="제출" class="btn w-100 btn-success mt-3"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

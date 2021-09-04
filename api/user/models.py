@@ -86,7 +86,9 @@ class User(AbstractUser):
         max_length=255,
         unique=True,
     )
-    major = models.IntegerField(verbose_name='전공', choices=MAJOR_CHOICE, default=0)
+    major = models.IntegerField(verbose_name='본전공', choices=MAJOR_CHOICE, default=0)
+    second_major = models.IntegerField(verbose_name='제 2전공', choices=MAJOR_CHOICE, null=True, blank=True)
+    third_major = models.IntegerField(verbose_name='제 3전공', choices=MAJOR_CHOICE, null=True, blank=True)
     phone = models.CharField(verbose_name='휴대폰 번호', max_length=20)
     state = models.IntegerField(choices=STATE_CHOICE, default=0)
     grade = models.IntegerField(choices=Grade.choices, default=0)
@@ -106,7 +108,7 @@ class User(AbstractUser):
 
 class JoinSGCC(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    reason = models.CharField(verbose_name='가입 사유', max_length=200)
+    reason = models.TextField(verbose_name='가입 사유')
     read_notice = models.BooleanField()
     approval = models.BooleanField(default=False)
 
