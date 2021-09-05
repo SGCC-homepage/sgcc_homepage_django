@@ -1,5 +1,6 @@
 import json
 import pymysql
+import django
 
 from .base import *
 
@@ -36,3 +37,5 @@ if DB == 'mysql':
     DATABASES = config_secret["django"]["databases"]
 
 API_URI = 'http://sgcc.me'
+
+django.setup()
