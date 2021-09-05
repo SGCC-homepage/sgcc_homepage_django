@@ -19,7 +19,11 @@ config_secret = json.loads(config_secret_str)
 
 SECRET_KEY = config_secret["django"]["secret_key"]
 
-ALLOWED_HOSTS = ['Sgcchomepage-env.eba-q2kwnmyp.ap-northeast-2.elasticbeanstalk.com']
+# ALLOWED_HOSTS = [
+#     'Sgcchomepage-env.eba-q2kwnmyp.ap-northeast-2.elasticbeanstalk.com',
+#     'sgcchomepage-env.eba-q2kwnmyp.ap-northeast-2.elasticbeanstalk.com',
+#     '127.0.0.1'
+# ]
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
