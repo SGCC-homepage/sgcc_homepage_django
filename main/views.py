@@ -29,7 +29,7 @@ class RegisterTemplateView(ListCreateAPIView):
         if form.is_valid():
             print(form.cleaned_data)
             response = requests.post(
-                "http://localhost:8000/api/user/register/sgcc/",
+                "http://3.34.82.129/api/user/register/sgcc/",
                 data=form.cleaned_data
             )
             if response.status_code == 201:
