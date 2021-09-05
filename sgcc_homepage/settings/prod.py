@@ -18,6 +18,8 @@ with open(os.path.join(CONFIG_SECRET_DIR, 'settings.json')) as f:
 # json to dict
 config_secret = json.loads(config_secret_str)
 
+print(config_secret["django"]["secret_key"])
+
 SECRET_KEY = config_secret["django"]["secret_key"]
 
 # Database
