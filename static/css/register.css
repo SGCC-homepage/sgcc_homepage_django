@@ -1,0 +1,40 @@
+.join-box{
+    width: 60vw;
+}
+
+@media (min-width: 992px) {
+    .join-box{
+        width: 40vw;
+    }
+}
+
+.h2{
+    font-weight: 400;
+}
+
+@media (min-width: 576px) {
+    .h2 {
+        font-size: 3.75rem;
+        margin-bottom: 6rem !important;
+    }
+
+    .h3 {
+        font-size: 2.75rem;
+    }
+
+    .form-label, .form-control{
+        font-size: 1.75rem;
+    }
+}
+
+.help-block{
+    text-align: left !important;
+    color: #4e555b !important;
+    font-size: 0.8rem;
+}
+
+@media (min-width: 576px){
+    .help-block{
+        font-size: 1.5rem;
+    }
+}

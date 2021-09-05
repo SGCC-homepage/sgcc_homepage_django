@@ -324,7 +324,6 @@ api/management/migrations/**
 
 # Django settings
 .config/secret_key/settings.json
-static/
 media/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
