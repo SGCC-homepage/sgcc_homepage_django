@@ -16,7 +16,7 @@ jobs:
       - name: ssh 접속 및 script 실행
         uses: appleboy/ssh-action@master
         with:
-          host: 18.190.43.125
+          host: 3.34.82.129
           username: ubuntu
           key: ${{ secrets.SGCC_PRIVATE }}
           port: 22
@@ -26,9 +26,9 @@ jobs:
             git pull origin master
             sleep 5
             source venv/bin/activate
-            echo yes | python3 manage.py collectstatic
-            python3 manage.py makemigrations
-            python3 manage.py migrate
+            echo yes | python3 manage.py collectstatic --settings sgcc_homepage.settings.prod
+            python3 manage.py makemigrations --settings sgcc_homepage.settings.prod
+            python3 manage.py migrate --settings sgcc_homepage.settings.prod
             sleep 5
             deactivate
             sudo systemctl restart gunicorn
