@@ -9,7 +9,7 @@ pymysql.install_as_MySQLdb()
 DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
-CONFIG_SECRET_DIR = os.path.join(BASE_DIR, '.config/secret_key')
+CONFIG_SECRET_DIR = os.path.join(BASE_DIR, '.config')
 
 with open(os.path.join(CONFIG_SECRET_DIR, 'settings.json')) as f:
     config_secret_str = f.read()
@@ -27,7 +27,7 @@ SECRET_KEY = config_secret["django"]["secret_key"]
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-DB = 'sqlite'
+DB = 'mysql'
 
 if DB == 'sqlite':
     DATABASES = {
@@ -42,8 +42,8 @@ if DB == 'mysql':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'sgcc_test',
-            'USER': 'root',
+            'NAME': 'sgcc',
+            'USER': 'mye785c83',
             'PASSWORD': 'rlagPfls0117*',
             'HOST': 'localhost',
             'PORT': '3306',
