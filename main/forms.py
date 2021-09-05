@@ -5,16 +5,14 @@ from api.user.models import User
 
 
 # abstractuser의 username을 학번으로 사용
-class CreateAccount(UserCreationForm):
-    password1 = forms.CharField(widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control'}), required=True)
-    password2 = forms.CharField(widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control'}), required=True)
-    reason = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control'}), required=True)
+class CreateAccount(forms.ModelForm):
+    reason = forms.CharField(widget=forms.Textarea(attrs={'class': 'w-100'}), required=True)
     read_notice = forms.BooleanField(widget=forms.CheckboxInput(attrs={'type': 'checkbox', 'class': 'form-check-input'}), required=True)
 
     class Meta:
         model = User
 
-        fields = ['name', 'username', 'major', 'second_major', 'third_major', 'phone', 'email', 'password1', 'password2']
+        fields = ['name', 'username', 'major', 'second_major', 'third_major', 'phone', 'email']
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '실명으로 입력해주세요'}),

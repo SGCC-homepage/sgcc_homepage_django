@@ -1,15 +1,18 @@
 import requests
 from rest_framework.generics import ListCreateAPIView, ListAPIView, GenericAPIView
+from django.conf import settings
 from django.http import Http404
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from django.contrib import auth
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
+from django.contrib.auth import views as auth_view
 
 from api.user.models import JoinSGCC
 from .forms import *
 
+
+api_uri = getattr(settings, 'API_URI')
 
 def main(request):
     return render(request, 'main.html')
@@ -26,10 +29,15 @@ class RegisterTemplateView(ListCreateAPIView):
         print('회원가입')
         form = CreateAccount(request.POST)
         print(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             print(form.cleaned_data)
+            # response = requests.post(
+            #     "http://3.34.82.129/api/user/register/sgcc/",
+            #     data=form.cleaned_data
+            # )
             response = requests.post(
-                "http://3.34.82.129/api/user/register/sgcc/",
+                api_uri+"/api/user/register/sgcc/",
                 data=form.cleaned_data
             )
             if response.status_code == 201:
