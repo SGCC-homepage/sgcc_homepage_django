@@ -9,43 +9,40 @@ def student_id_validator(value):
         raise forms.ValidationError('학번 8자리를 모두 입력해주세요(예시: 20210001)')
 
 
-class UserManager(DjangoUserManager):
-    def _create_user(self, username, email, password, **extra_fields):
+class UserManager(BaseUserManager):
+    def _create_user(self, username, name, email, phone, password, **extra_fields):
         if not username:
             raise ValueError('The given username must be set')
         if not email:
             raise ValueError('Users must have an email address')
-        email = self.normalize_email(email)
-        user = self.model(username=username, email=email, **extra_fields)
+
+        user = self.model(
+            username=username,
+            name=name,
+            email=self.normalize_email(email),
+            phone=phone,
+            **extra_fields
+        )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_user(self, username, email=None, password=None, **extra_fields):
+    def create_user(self, username, name, email, phone, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
 
-        if extra_fields.get('name') is None:
-            raise ValueError('Users must have a name')
-        if extra_fields.get('phone') is None:
-            raise ValueError('Users must have phone number')
+        return self._create_user(username, name, email, phone, password, **extra_fields)
 
-        return self._create_user(username, email, password, **extra_fields)
-
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
+    def create_superuser(self, username, email, name, phone, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
-
-        extra_fields.setdefault('name', 'name')
-        extra_fields.setdefault('phone', '01000000000')
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff=True.')
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
-
-        return self._create_user(email, password, **extra_fields)
+        return self._create_user(username, name, email, phone, password, **extra_fields)
 
 
 # AbstractUser의 username이 학번
