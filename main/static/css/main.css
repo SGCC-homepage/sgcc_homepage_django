@@ -2,14 +2,8 @@
     height: 80%;
 }
 
-@media (min-width: 992px) {
-    .title-box .title{
-        margin-top: calc(50% - 150px);
-    }
-}
-
 .title-box .btn{
-    font-size: 1.75rem;
+    font-size: 2.5rem;
 }
 
 @media (max-width: 992px) {
@@ -59,6 +53,15 @@
     font-size: 1.3rem;
 }
 
+@media (max-width: 992px){
+    .faq-box h2{
+        font-size: 2.45rem;
+    }
+    .faq-box div{
+        font-size: 1.9rem;
+    }
+}
+
 .faq-box a{
     display: block;
     text-decoration: underline;
@@ -68,3 +71,18 @@ li::marker{
     font-family: 'Do Hyeon', sans-serif;
     font-size: 2rem;
 }
+
+.header h1 {
+    font-size: calc(2.75rem + 3vw);
+}
+
+@media (max-width: 992px){
+    .header h1 {
+        font-size: calc(2.5rem + 4.2vw);
+    }
+
+    .h3, h3{
+        font-size: calc(1.8rem + 3vw);
+    }
+}
+

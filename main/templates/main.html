@@ -11,18 +11,19 @@
 {% block content %}
     {% include 'nav/nav.html' %}
     <div class="row w-100">
-        <div class="col-lg-5 p-3">
+        <div class="col-lg-6 p-3">
             <img class="img-fluid" src="{% static 'image/sgcc_poster.png' %}"/>
         </div>
-        <div class="col-lg-7 p-5">
+        <div class="col-lg-6 p-5">
             <div class="text-center py-5 title-box">
-                <div class="title">
-                    <h1>서강대학교 컴퓨터 중앙 동아리</h1>
-                    <h1>SGCC</h1>
+                <div class="title py-5 header">
+                    <h1>SoGang</h1>
+                    <h1>Computer</h1>
+                    <h1>Club</h1>
                 </div>
                 <a href="{% url 'register' %}" class="h1 btn btn-primary mt-5">가입 신청하기</a>
             </div>
-            <div class="mt-auto text-right help-box">
+            <div class="mt-auto text-right help-box pt-3">
                 <h3 class="mt-auto"><a class="js-scroll-trigger" href="http://pf.kakao.com/_xdHUxjK">플러스 친구 문의하기</a>
                 </h3>
                 <h3><a class="js-scroll-trigger" href="https://www.facebook.com/theSogangComputerClub/">페이스북 바로가기</a>
@@ -56,6 +57,15 @@
                             <i class="fas fa-hand-point-right me-2"></i>sgcc hoempage
                         </a>
                     </div>
+                </div>
+            </li>
+            <li class="mt-2">
+                <h2>컴퓨터를 잘 모르고 코딩도 할 줄 모르는데 들어가도 될까요?</h2>
+                <div>
+                    저희 동아리는 컴퓨터에 관심있는 분들은 모두 환영입니다!
+                    <br><br>
+                    저희 동아리에는 컴퓨터공학과 뿐만 아니라 다양한 전공을 가진 분들이 계시고 카카오톡과 디스코드를 이용해 관련 지식이나 그 외의 이야기를 자유롭게 나누고 있습니다.
+                    본인이 흥미만 있다면 모르는 부분을 질문해 주시면 다들 친절하게 답변해드립니다. 또한 동아리원들 간에 유용한 정보도 자주 공유되니 들어오셔서 차근차근 알아가실 수 있습니다.
                 </div>
             </li>
         </ol>

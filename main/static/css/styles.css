@@ -4,7 +4,7 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #424242;
     background-color: #40a6c3;
 }
 
@@ -74,8 +74,13 @@ a:not([href]):not([class]):hover {
 }
 
 .footer {
-    padding: 5rem 0;
+    padding: 5rem .5rem 1rem .5rem;
     background-color: #F2F2F2 !important;
+    color: #828282;
+}
+
+.footer .text-left{
+    padding-right: 45%;
 }
 
 h1, h2, h3 {
@@ -83,7 +88,7 @@ h1, h2, h3 {
 }
 
 .h1, h1 {
-    font-size: calc(2rem + 2.5vh);
+    font-size: calc(2.5rem + 2.5vw);
 }
 
 @media (max-width: 992px) {
@@ -104,10 +109,16 @@ h1, h2, h3 {
 
 #button-box>a{
     color: #F2F2F2 !important;
-    font-size: 1.4rem;
-    border: 1px solid #F2F2F2;
+    font-size: 1.2rem;
     padding: 0 0.3rem;
 }
+
+@media (min-width: 992px){
+    #button-box>a{
+        border: 1px solid #F2F2F2;
+    }
+}
+
 
 .navbar-brand{
     font-weight: bolder;
