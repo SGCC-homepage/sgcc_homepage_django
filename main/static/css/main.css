@@ -9,7 +9,14 @@
 }
 
 .title-box .btn{
-    font-size: 1.6rem;
+    font-size: 1.75rem;
+}
+
+@media (max-width: 992px) {
+    .title-box .btn{
+        font-size: calc(1.8rem + 2.5vw);
+        padding: 1.4rem 1.6rem;
+    }
 }
 
 .btn a {

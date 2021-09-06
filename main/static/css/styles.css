@@ -43,34 +43,34 @@ a:not([href]):not([class]):hover {
 }
 
 .btn-primary {
-    background-color: rgba(38, 2, 2, 0.8);
-    border-color: #260202;
+    background-color: rgba(255, 255, 255, 0);
+    border: 3px solid #F2F2F2;
 }
 
 .btn-primary:hover {
-    background-color: #260202;
-    border-color: #260202;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 3px solid #F2F2F2;
     text-decoration: none;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-    background-color: #260202;
-    border-color: #260202;
-    box-shadow: 0 0 0 0.2rem rgba(38, 2, 2, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 3px solid #F2F2F2;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #260202;
-    border-color: #260202;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 3px solid #F2F2F2;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
-    background-color: #260202;
-    border-color: #260202;
+    background-color: #F2F2F2;
+    border: 3px solid #F2F2F2;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(38, 2, 2, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .footer {
@@ -83,17 +83,44 @@ h1, h2, h3 {
 }
 
 .h1, h1 {
-    font-size: calc(2rem + 2.5vw);
+    font-size: calc(2rem + 2.5vh);
 }
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
     .h1, h1{
-        font-size: calc(2rem + 2.5vh);
+        font-size: calc(3rem + 2.5vw);
     }
 }
 
 .h3, h3 {
     font-size: calc(1.8rem + .6vw);
+}
+
+.navbar-brand{
+    color: #F2F2F2 !important;
+    font-weight: bolder;
+    font-size: 1.75rem;
+}
+
+#button-box>a{
+    color: #F2F2F2 !important;
+    font-size: 1.4rem;
+    border: 1px solid #F2F2F2;
+    padding: 0 0.3rem;
+}
+
+.navbar-brand{
+    font-weight: bolder;
+}
+
+@media (max-width: 992px) {
+    .navbar-brand, #button-box>a{
+        font-size: 2.5rem;
+    }
+    #button-box>a {
+        font-size: 2.25rem;
+        padding: 0 0.5rem;
+    }
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
