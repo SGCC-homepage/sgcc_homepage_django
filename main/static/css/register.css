@@ -2,6 +2,10 @@
     width: 60vw;
 }
 
+.container{
+    background-color: #F2F2F2;
+}
+
 @media (min-width: 992px) {
     .join-box{
         width: 40vw;
@@ -22,8 +26,14 @@
         font-size: 2.75rem;
     }
 
-    .form-label, .form-control{
+    .form-label, .form-control, textarea, .form-check-label, input.btn{
         font-size: 1.75rem;
+    }
+
+    .form-check-input{
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 0.4rem;
     }
 }
 
