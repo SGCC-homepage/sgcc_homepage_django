@@ -11,10 +11,10 @@
 {% block content %}
     {% include 'nav/nav.html' %}
     <div class="row w-100">
-        <div class="col-lg-6 p-3">
-            <img class="img-fluid" src="{% static 'image/sgcc_poster.png' %}" />
+        <div class="col-lg-5 p-3">
+            <img class="img-fluid" src="{% static 'image/sgcc_poster.png' %}"/>
         </div>
-        <div class="col-lg-6 p-5">
+        <div class="col-lg-7 p-5">
             <div class="text-center py-5 title-box">
                 <div class="title">
                     <h1>서강대학교 컴퓨터 중앙 동아리</h1>
@@ -23,40 +23,72 @@
                 <a href="{% url 'register' %}" class="h1 btn btn-primary mt-5">가입 신청하기</a>
             </div>
             <div class="mt-auto text-right help-box">
-                <h3 class="mt-auto"><a class="js-scroll-trigger" href="http://pf.kakao.com/_xdHUxjK">플러스 친구 문의하기</a></h3>
-                <h3><a class="js-scroll-trigger" href="https://www.facebook.com/theSogangComputerClub/">페이스북 바로가기</a></h3>
+                <h3 class="mt-auto"><a class="js-scroll-trigger" href="http://pf.kakao.com/_xdHUxjK">플러스 친구 문의하기</a>
+                </h3>
+                <h3><a class="js-scroll-trigger" href="https://www.facebook.com/theSogangComputerClub/">페이스북 바로가기</a>
+                </h3>
             </div>
         </div>
+    </div>
+    <div class="m-5 faq-box p-3">
+        <h1>FAQ</h1>
+        <ol>
+            <li>
+                <h2>동아리에선 어떤 활동을 하나요?</h2>
+                <div>
+                    저희 동아리에서는 주로 스터디나 프로젝트를 진행합니다.
+                    <br><br>
+                    스터디의 경우 python, C 와 같은 프로그래밍 언어에 대한 스터디를 진행하거나
+                    학교 수업에 대한 스터디를 진행합니다.
+                    현재 동아리 활동을 대면으로 진행하기 어렵기 때문에 디스코드를 이용해 스터디를 진행하고 있습니다.
+                    <br><br>
+                    프로젝트의 경우, 저희가 자체적으로 프로젝트 주제를 받아 팀을 구성하기도 하고
+                    개인적으로 하고 싶은 프로젝트가 있을 경우 동아리에서 같이 하고싶은 사람을 모아 팀을 구성해 프로젝트를 진행할 수 있습니다.
+                    지난 여름 저희 동아리에서 서담 서치 서비스를 개발했고 지금 보시고 있는 페이지도 동아리에서 진행한 프로젝트의 일환입니다.
+                    <br><br>
+                    아래 링크에서 프로젝트를 확인하실 수 있습니다.
+
+                    <div class="p-2">
+                        <a href="http://www.ssodam.com/content/1241257?prev=1&prev_content=/board/4">
+                            <i class="fas fa-hand-point-right me-2"></i>서담 서치
+                        </a>
+                        <a href="https://github.com/SGCC-homepage/sgcc_homepage_django">
+                            <i class="fas fa-hand-point-right me-2"></i>sgcc hoempage
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ol>
     </div>
 {% endblock %}
 
 {% block js %}
-{#    <script type="text/javascript">#}
-{#        var isShow = false;#}
-{##}
-{#        console.log($(document).width());#}
-{##}
-{#        if ($(document).width() < 992) {#}
-{#            $('.introduction').removeClass('hide');#}
-{#            console.log($(document).width());#}
-{#            isShow = true;#}
-{#        } else {#}
-{#            console.log('hide');#}
-{#            $(document).on('scroll', function () {#}
-{#                checkVisible($('.contact-section'));#}
-{#            });#}
-{#        }#}
-{##}
-{#        function checkVisible(elm, eval) {#}
-{#            var scrolltop = $(window).scrollTop(), // Scroll Top#}
-{#                y = $(elm).offset().top,#}
-{#                navbarHeight = $('.navbar').height();#}
-{#            if (navbarHeight + scrolltop + 350 > y && !isShow) {#}
-{#                $('.introduction').removeClass('hide');#}
-{#                $('.introduction').addClass('slide');#}
-{#                console.log('show');#}
-{#                isShow = true;#}
-{#            }#}
-{#        }#}
+    {#    <script type="text/javascript">#}
+    {#        var isShow = false;#}
+    {##}
+    {#        console.log($(document).width());#}
+    {##}
+    {#        if ($(document).width() < 992) {#}
+    {#            $('.introduction').removeClass('hide');#}
+    {#            console.log($(document).width());#}
+    {#            isShow = true;#}
+    {#        } else {#}
+    {#            console.log('hide');#}
+    {#            $(document).on('scroll', function () {#}
+    {#                checkVisible($('.contact-section'));#}
+    {#            });#}
+    {#        }#}
+    {##}
+    {#        function checkVisible(elm, eval) {#}
+    {#            var scrolltop = $(window).scrollTop(), // Scroll Top#}
+    {#                y = $(elm).offset().top,#}
+    {#                navbarHeight = $('.navbar').height();#}
+    {#            if (navbarHeight + scrolltop + 350 > y && !isShow) {#}
+    {#                $('.introduction').removeClass('hide');#}
+    {#                $('.introduction').addClass('slide');#}
+    {#                console.log('show');#}
+    {#                isShow = true;#}
+    {#            }#}
+    {#        }#}
     </script>
 {% endblock %}

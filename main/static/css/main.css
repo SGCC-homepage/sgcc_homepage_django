@@ -43,3 +43,21 @@
 .card-title{
     font-weight: bolder;
 }
+
+.faq-box{
+    background-color: #F2F2F2;
+}
+
+.faq-box div{
+    font-size: 1.3rem;
+}
+
+.faq-box a{
+    display: block;
+    text-decoration: underline;
+}
+
+li::marker{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 2rem;
+}
