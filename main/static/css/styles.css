@@ -138,8 +138,12 @@ h1, h2, h3 {
     text-decoration: none;
 }
 
+.container, .container-md, .container-sm {
+   max-width: 90vw !important;
+}
+
 @media (min-width: 768px){
    .container, .container-md, .container-sm {
-       max-width: 75vw !important;
+       max-width: 85vw !important;
    }
 }
