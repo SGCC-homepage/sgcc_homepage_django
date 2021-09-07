@@ -18,14 +18,14 @@
 {#                <a href="{% url 'my_page' %}" class="btn-sm btn-primary me-2">마이페이지</a>#}
                 <a href="{% url 'logout' %}" class="me-2" onclick="createAlert(2)">로그아웃</a>
                 {% if user.grade == 4 %}
-                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
+                    <a href="{% url 'user_management' %}">관리자 페이지</a>
                 {% elif grade == 4 %}
-                    <a href="{% url 'user_management' %}" class="btn-sm btn-primary">관리자 페이지</a>
+                    <a href="{% url 'user_management' %}">관리자 페이지</a>
                 {% endif %}
             </div>
         {% else %}
             <div class="d-flex ml-auto" id="button-box">
-                <a href="{% url 'sign_in' %}" class="btn-sm btn-primary me-2">로그인</a>
+                <a href="{% url 'sign_in' %}" class="me-2">로그인</a>
 {#                <a href="{% url 'register' %}" class="btn-sm btn-primary">회원가입</a>#}
             </div>
         {% endif %}

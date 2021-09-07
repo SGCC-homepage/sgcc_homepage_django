@@ -137,3 +137,9 @@ h1, h2, h3 {
 .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none;
 }
+
+@media (min-width: 768px){
+   .container, .container-md, .container-sm {
+       max-width: 75vw !important;
+   }
+}

@@ -1,14 +1,16 @@
 .join-box{
-    width: 60vw;
+    width: 70vw;
 }
 
 .container{
     background-color: #F2F2F2;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
 }
 
 @media (min-width: 992px) {
     .join-box{
-        width: 40vw;
+        width: 60vw;
     }
 }
 

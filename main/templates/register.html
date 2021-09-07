@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     {% include 'nav/nav_only_sgcc.html'%}
-    <div class="container py-5 mb-5" style="min-height: 93vh;">
+    <div class="container py-5">
         <h2 class="h2 text-center mb-4 pt-4">SGCC 가입신청서</h2>
         <div class="join-box mx-auto px-3">
             {% include "form_errors.html" %}
@@ -63,7 +63,7 @@
                         확인했습니다.
                     </label>
                 </div>
-                <input type="submit" name="submit" value="제출" class="btn w-100 btn-success mt-3"/>
+                <input type="submit" name="submit" value="제출" class="btn w-100 btn-success mt-5"/>
             </form>
         </div>
     </div>
