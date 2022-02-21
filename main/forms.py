@@ -8,6 +8,7 @@ from api.user.models import User
 class CreateAccount(forms.ModelForm):
     reason = forms.CharField(widget=forms.Textarea(attrs={'class': 'w-100'}), required=True)
     read_notice = forms.BooleanField(widget=forms.CheckboxInput(attrs={'type': 'checkbox', 'class': 'form-check-input'}), required=True)
+    temp_demand = forms.BooleanField(widget=forms.CheckboxInput(attrs={'type': 'checkbox', 'class': 'form-check-input'}))
 
     class Meta:
         model = User

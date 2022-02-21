@@ -16,6 +16,7 @@ class RegisterSGCCSerializer(serializers.Serializer):
 
     reason = serializers.CharField()
     read_notice = serializers.BooleanField()
+    temp_demand = serializers.BooleanField()
 
     def validate(self, attrs):
         username = attrs.get('username')
@@ -47,7 +48,8 @@ class RegisterSGCCSerializer(serializers.Serializer):
         join_sgcc = JoinSGCC.objects.create(
             user=user,
             reason=validated_data.get('reason'),
-            read_notice=validated_data.get('read_notice')
+            read_notice=validated_data.get('read_notice'),
+            temp_demand=validated_data.get('temp_demand')
         )
         join_sgcc.save()
         return validated_data

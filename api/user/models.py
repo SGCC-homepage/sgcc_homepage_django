@@ -108,6 +108,7 @@ class JoinSGCC(models.Model):
     reason = models.TextField(verbose_name='가입 사유')
     read_notice = models.BooleanField()
     approval = models.BooleanField(default=False)
+    temp_demand = models.BooleanField(null=True, verbose_name='가수요조사')
 
     def __str__(self):
         return self.user.name +'(' + self.user.username + ') 입회원서'
