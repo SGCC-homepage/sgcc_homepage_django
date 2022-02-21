@@ -22,7 +22,7 @@ SECRET_KEY = config_secret["django"]["secret_key"]
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-DB = 'mysql'
+DB = 'sqlite'
 
 if DB == 'sqlite':
     DATABASES = {

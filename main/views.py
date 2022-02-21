@@ -137,7 +137,8 @@ class RegisterManagementTemplateView(ListAPIView):
                         'email': user.email,
                         'state': user.get_state_display(),
                         'is_authenticated': user.is_authenticated,
-                        'reason': join_sgcc.reason
+                        'reason': join_sgcc.reason,
+                        'temp_demand': '예' if join_sgcc.temp_demand else '아니오',
                     }
                     users_list.append(user_info)
                     i += 1
