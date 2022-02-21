@@ -7,7 +7,7 @@ from .base import *
 pymysql.install_as_MySQLdb()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 CONFIG_SECRET_DIR = os.path.join(BASE_DIR, '.config')
