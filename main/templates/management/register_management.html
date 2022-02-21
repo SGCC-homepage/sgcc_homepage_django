@@ -12,53 +12,54 @@
     </style>
 {% endblock %}
 {% block content %}
+{% include 'nav/nav_management.html'%}
+<form method="post" action="{% url 'approve_users' %}" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="container text-center table-responsive w-100">
-        <div class="mx-4 table-responsive w-100">
-            <h4 class="h4 my-4" style="text-align: left;">관리자페이지 > 회원 관리 > 가입 신청 회원 관리</h4>
-            <div class="d-flex justify-content-between mb-3">
-                <div class="d-flex justify-content-start">
-                    <span class="mx-3">신청 인원: {{ total }}</span>
-                </div>
-                <div id="input-form" class="d-flex flex-row-reverse">
-                    <input type="text" id="name"/><span class="mx-3">이름 : </span>
-                    <input type="text" id="student-id"/><span class="mx-3">학번 : </span>
-                </div>
+        <h4 class="h4 my-4" style="text-align: left;">관리자페이지 > 가입 회원 관리</h4>
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex justify-content-start">
+                <span class="mx-3">신청 인원: {{ total }}</span>
             </div>
-            <table class="table table-hover" id="user-table">
-                <thead>
-                <tr>
-                    <th class="text-nowrap">#</th>
-                    <th class="text-nowrap">이름</th>
-                    <th class="text-nowrap">학번</th>
-                    <th class="text-nowrap">제 1전공</th>
-                    <th class="text-nowrap">제 2전공</th>
-                    <th class="text-nowrap">제 3전공</th>
-                    <th class="text-nowrap">전화번호</th>
-                    <th class="text-nowrap">이메일</th>
-                    <th colspan="20" class="text-nowrap">가입사유</th>
-                    <th class="text-nowrap">가수요조사</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    <tr>
-                        <td colspan="1"> 
-                            <input name="{{ user.pk }}" value="{{ user.pk }}" type="checkbox" />
-                        </td>
-                        <td class="text-nowrap">{{ user.name }}</td>
-                        <td class="text-nowrap">{{ user.username }}</td>
-                        <td class="text-nowrap">{{ user.major }}</td>
-                        <td class="text-nowrap">{{ user.second_major }}</td>
-                        <td class="text-nowrap">{{ user.third_major }}</td>
-                        <td class="text-nowrap">{{ user.phone }}</td>
-                        <td class="text-nowrap">{{ user.email }}</td>
-                        <td colspan="20">{{ user.reason }}</td>
-                        <td class="text-nowrap">{{ user.temp_demand }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            <div id="input-form" class="d-flex flex-row-reverse">
+                <input type="text" id="name"/><span class="mx-3">이름 : </span>
+                <input type="text" id="student-id"/><span class="mx-3">학번 : </span>
+            </div>
         </div>
+        <table class="table table-hover" id="user-table">
+            <thead>
+            <tr>
+                <th class="text-nowrap">#</th>
+                <th class="text-nowrap">이름</th>
+                <th class="text-nowrap">학번</th>
+                <th class="text-nowrap">제 1전공</th>
+                <th class="text-nowrap">제 2전공</th>
+                <th class="text-nowrap">제 3전공</th>
+                <th class="text-nowrap">전화번호</th>
+                <th class="text-nowrap">이메일</th>
+                <th colspan="20" class="text-nowrap">가입사유</th>
+                <th class="text-nowrap">가수요조사</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td colspan="1"> 
+                        <input id="check{{user.pk}}" name="{{ user.pk }}" value="{{ user.pk }}" type="checkbox" />
+                    </td>
+                    <td class="text-nowrap">{{ user.name }}</td>
+                    <td class="text-nowrap">{{ user.username }}</td>
+                    <td class="text-nowrap">{{ user.major }}</td>
+                    <td class="text-nowrap">{{ user.second_major }}</td>
+                    <td class="text-nowrap">{{ user.third_major }}</td>
+                    <td class="text-nowrap">{{ user.phone }}</td>
+                    <td class="text-nowrap">{{ user.email }}</td>
+                    <td colspan="20">{{ user.reason }}</td>
+                    <td class="text-nowrap">{{ user.temp_demand }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
         <script type="text/javascript">
             // table 검색
             $("#student-id").keyup(function () {
@@ -83,9 +84,8 @@
             }
         </script>
     </div>
-{% endblock %}
-{% block footer %}
     <div class="d-flex flex-row-reverse mb-3 fixed-bottom">
-        <a href="{% url 'delete_user' %}" class="btn-sm btn-danger me-5">가입승인</a>
+        <input type="submit" class="btn-sm btn-danger me-5" value="가입승인"/>
     </div>
+</form>
 {% endblock %}

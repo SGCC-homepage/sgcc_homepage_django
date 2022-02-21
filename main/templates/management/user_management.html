@@ -12,63 +12,62 @@
     </style>
 {% endblock %}
 {% block content %}
-    <div class="container text-center">
-        <div class="mx-4">
-            <h4 class="h4 my-4" style="text-align: left;">관리자페이지 > 회원 관리</h4>
-            <div class="d-flex justify-content-between mb-3">
-                <div class="d-flex justify-content-start">
-                    <span class="mx-3">회비 납부: {{ pay }}/{{ total }}</span>
-                    <span class="mx-3">신입 : {{ new }}  일반: {{ general }} 졸업: {{ graduate }}</span>
-                </div>
-                <div id="input-form" class="d-flex flex-row-reverse">
-                    <input type="text" id="name"/><span class="mx-3">이름 : </span>
-                    <input type="text" id="student-id"/><span class="mx-3">학번 : </span>
-                </div>
+{% include 'nav/nav_management.html'%}
+    <div class="container text-center w-100">
+        <h4 class="h4 my-4" style="text-align: left;">관리자페이지 > 일반 회원 관리</h4>
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex justify-content-start">
+                <span class="mx-3">회비 납부: {{ pay }}/{{ total }}</span>
+                <span class="mx-3">신입 : {{ new }}  일반: {{ general }} 졸업: {{ graduate }}</span>
             </div>
-            <table class="table table-hover" id="user-table">
-                <thead>
-                <tr>
-                    <th colspan="2">#</th>
-                    <th colspan="2">이름</th>
-                    <th colspan="2">학번</th>
-                    <th colspan="2">제 1전공</th>
-                    <th colspan="2">전화번호</th>
-                    <th colspan="2">이메일</th>
-                    <th colspan="2">상태</th>
-                    <th colspan="2">등급</th>
-                    <th colspan="2">회비 납부 여부</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    <tr>
-                        <td colspan="2">{{ user.index }}</td>
-                        <td colspan="2">{{ user.name }}</td>
-                        <td colspan="2">{{ user.username }}</td>
-                        <td colspan="2">{{ user.major }}</td>
-                        <td colspan="2">{{ user.phone }}</td>
-                        <td colspan="2">{{ user.email }}</td>
-                        <td colspan="2">{{ user.state }}</td>
-                        <td colspan="2">
-                            <form method="post" action="{% url 'change_user_grade' %}" enctype="multipart/form-data"
-                                  id="user-form{{ user.pk }}" onchange="SubmitForm('{{ user.pk }}')">
-                                {% csrf_token %}
-                                {{ user.form.username }}
-                                {{ user.form.grade }}
-                            </form>
-                        </td>
-                        <td colspan="2">
-                            <form method="post" action="{% url 'change_dues_payment' %}" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <input type="hidden" name="username" value="{{ user.username }}">
-                                <input type="submit" name="submit" value="{{ user.dues_payment }}">
-                            </form>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            <div id="input-form" class="d-flex flex-row-reverse">
+                <input type="text" id="name"/><span class="mx-3">이름 : </span>
+                <input type="text" id="student-id"/><span class="mx-3">학번 : </span>
+            </div>
         </div>
+        <table class="table table-hover" id="user-table">
+            <thead>
+            <tr>
+                <th colspan="2">#</th>
+                <th colspan="2">이름</th>
+                <th colspan="2">학번</th>
+                <th colspan="2">제 1전공</th>
+                <th colspan="2">전화번호</th>
+                <th colspan="2">이메일</th>
+                <th colspan="2">상태</th>
+                <th colspan="2">등급</th>
+                <th colspan="2">회비 납부 여부</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td colspan="2">{{ user.index }}</td>
+                    <td colspan="2">{{ user.name }}</td>
+                    <td colspan="2">{{ user.username }}</td>
+                    <td colspan="2">{{ user.major }}</td>
+                    <td colspan="2">{{ user.phone }}</td>
+                    <td colspan="2">{{ user.email }}</td>
+                    <td colspan="2">{{ user.state }}</td>
+                    <td colspan="2">
+                        <form method="post" action="{% url 'change_user_grade' %}" enctype="multipart/form-data"
+                                id="user-form{{ user.pk }}" onchange="SubmitForm('{{ user.pk }}')">
+                            {% csrf_token %}
+                            {{ user.form.username }}
+                            {{ user.form.grade }}
+                        </form>
+                    </td>
+                    <td colspan="2">
+                        <form method="post" action="{% url 'change_dues_payment' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" name="username" value="{{ user.username }}">
+                            <input type="submit" name="submit" value="{{ user.dues_payment }}">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
         <script type="text/javascript">
             // table 검색
             $("#student-id").keyup(function () {

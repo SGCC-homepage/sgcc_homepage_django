@@ -10,7 +10,7 @@ class CreateAccount(forms.ModelForm):
     read_notice = forms.BooleanField(widget=forms.CheckboxInput(attrs={'type': 'checkbox', 'class': 'form-check-input'}), required=True)
     temp_demand = forms.TypedChoiceField(
                    coerce=lambda x: x == '예',
-                   choices=((False, '예'), (False, '아니오')),
+                   choices=((True, '예'), (False, '아니오')),
                    widget=forms.RadioSelect(attrs={'class': 'form-check-label'})
                 )
 
