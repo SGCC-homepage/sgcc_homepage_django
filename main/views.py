@@ -207,8 +207,8 @@ def approve_users(request):
         form = request.POST
         users = User.objects.filter(grade=0)
         for user in users:
-            try : form.get(str(user.pk))
-            except: continue
+            if form.get(str(user.pk)) is None:
+                continue
             user.grade = 1
             user.save()
     return redirect('register_management')
