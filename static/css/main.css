@@ -2,14 +2,15 @@
     height: 80%;
 }
 
-@media (min-width: 992px) {
-    .title-box .title{
-        margin-top: calc(50% - 150px);
-    }
+.title-box .btn{
+    font-size: 2.5rem;
 }
 
-.title-box .btn{
-    font-size: 1.6rem;
+@media (max-width: 992px) {
+    .title-box .btn{
+        font-size: calc(1.8rem + 2.5vw);
+        padding: 1.4rem 1.6rem;
+    }
 }
 
 .btn a {
@@ -43,3 +44,50 @@
 .card-title{
     font-weight: bolder;
 }
+
+.faq-box{
+    background-color: #F2F2F2;
+    padding: 2.5rem;
+}
+
+.faq-box div{
+    font-size: 1.3rem;
+}
+
+.faq-box ol li{
+    margin-top: 4.5rem;
+}
+
+@media (max-width: 992px){
+    .faq-box h2{
+        font-size: 2.45rem;
+    }
+    .faq-box div{
+        font-size: 1.9rem;
+    }
+}
+
+.faq-box a{
+    display: block;
+    text-decoration: underline;
+}
+
+li::marker{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 2rem;
+}
+
+.header h1 {
+    font-size: calc(2.75rem + 3vw);
+}
+
+@media (max-width: 992px){
+    .header h1 {
+        font-size: calc(2.5rem + 4.2vw);
+    }
+
+    .h3, h3{
+        font-size: calc(1.8rem + 3vw);
+    }
+}
+
