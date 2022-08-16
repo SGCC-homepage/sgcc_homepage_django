@@ -28,6 +28,7 @@ class RegisterSGCCView(ListCreateAPIView):
         return queryset
 
 
+
 class RegisterSGCCListView(ListAPIView):
     serializer_class = RegisterSGCCSerializer
     authentication_classes = [TokenAuthentication]

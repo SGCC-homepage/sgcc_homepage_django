@@ -1,3 +1,4 @@
+from urllib import response
 import requests
 from rest_framework.generics import ListCreateAPIView, ListAPIView, GenericAPIView
 from django.conf import settings
@@ -10,7 +11,7 @@ from django.contrib.auth import views as auth_view
 
 from api.user.models import JoinSGCC
 from .forms import *
-
+from api.user.serializers import RegisterSGCCSerializer
 
 api_uri = getattr(settings, 'API_URI')
 
@@ -19,6 +20,7 @@ def main(request):
 
 
 class RegisterTemplateView(ListCreateAPIView):
+    serializer_class = RegisterSGCCSerializer
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, request, *args, **kwargs):
@@ -26,22 +28,15 @@ class RegisterTemplateView(ListCreateAPIView):
         return Response({'form': form}, template_name='register.html')
 
     def post(self, request, *args, **kwargs):
-        print('회원가입')
+        # print('회원가입')
         form = CreateAccount(request.POST)
-        print(request.POST)
-        print(form.is_valid())
+        # print(request.POST)
+        # print(form.is_valid())
         if form.is_valid():
-            print(form.cleaned_data)
-            # response = requests.post(
-            #     "http://3.34.82.129/api/user/register/sgcc/",
-            #     data=form.cleaned_data
-            # )
-            response = requests.post(
-                api_uri+"/api/user/register/sgcc/",
-                data=form.cleaned_data
-            )
+            # print(form.cleaned_data)
+            response = self.create(request, *args, **kwargs)
             if response.status_code == 201:
-                return Response({'mss': 'welcome'}, template_name='main.html')
+                return Response({'mss': 'welcome'}, template_name='register.html')
         return Response({'form': form}, template_name='register.html')
 
 

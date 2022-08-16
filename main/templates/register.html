@@ -5,6 +5,12 @@
 <style>
 ul{list-style:none; padding-left:0 !important;}
 </style>
+<script type="text/javascript">
+    {% if mss == 'welcome' %}
+        createAlert(0);
+        location.href='http://www.sgcc.me'
+    {% endif %}
+</script>
 {% endblock %}
 {% block content %}
     {% include 'nav/nav_only_sgcc.html'%}

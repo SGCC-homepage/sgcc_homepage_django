@@ -16,7 +16,7 @@ class RegisterSGCCSerializer(serializers.Serializer):
 
     reason = serializers.CharField()
     read_notice = serializers.BooleanField()
-    temp_demand = serializers.BooleanField()
+    temp_demand = serializers.IntegerField()
 
     def validate(self, attrs):
         username = attrs.get('username')
